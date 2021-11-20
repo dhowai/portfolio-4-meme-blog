@@ -19,18 +19,19 @@
             {% for post in post_list %}
             <!-- Featured blog post-->
             <div class="card mb-4">
-                <a href="#!"></a>
-                <div class="card-body">
-                    <h2 class="card-title">{{ post.title }}</h2>
-                    <div class="small text-muted">Posyed By: {{ post.author }}</div>
-                    <div class="small text-muted">{{ post.posted_on }}</div>
-                    {% if "placeholder" in post.content_image.url %}
-                    <img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg">
-                    {% else %}
-                    <img class="card-img-top" src="{{ post.content_image.url }}">
-                    {% endif %}
-                    <div class="small text-muted">{{ post.number_of_likes }}<i class="far fa-thumbs-up"></i></div>
-                </div>
+                <a href="{% url 'post-detail' post.pk %}" class="post-link">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ post.title }}</h2>
+                        <div class="small text-muted">Posyed By: {{ post.author }}</div>
+                        <div class="small text-muted">{{ post.posted_on }}</div>
+                        {% if "placeholder" in post.content_image.url %}
+                        <img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg">
+                        {% else %}
+                        <img class="card-img-top" src="{{ post.content_image.url }}">
+                        {% endif %}
+                        <div class="small text-muted">{{ post.number_of_likes }}<i class="far fa-thumbs-up"></i></div>
+                    </div>
+                </a>
             </div>
             {% endfor %}
         </div>

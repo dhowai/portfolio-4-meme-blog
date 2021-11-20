@@ -7,4 +7,7 @@ body {
     font-family: Roboto, sans-serif;
     font-weight: bold;
 }
-  
+
+.post-link {
+  text-decoration: none;
+}
