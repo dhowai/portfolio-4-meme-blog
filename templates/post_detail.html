@@ -9,9 +9,14 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <h2 class="card-title">{{ post.title }}</h2>
-                    <div class="small text-muted">Posyed By: {{ post.author }} <small><a class="post-link"
-                                href="{% url 'edit_post' post.pk %}"> - (Edit)</a><a class="post-link"
-                                href="{% url 'delete_post' post.pk %}"> (Delete)</a></small></div>
+                    <div class="small text-muted">Posyed By: {{ post.author }} 
+                        <small>
+                            {% if user.is_authenticated %}
+                                <a class="post-link" href="{% url 'edit_post' post.pk %}"> - (Edit)</a>
+                                <a class="post-link" href="{% url 'delete_post' post.pk %}"> (Delete)</a>
+                            {% endif %}
+                        </small>
+                    </div>
                     <div class="small text-muted">{{ post.posted_on }}</div>
                     {% if "placeholder" in post.content_image.url %}
                     <img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg">
