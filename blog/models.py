@@ -7,6 +7,7 @@ from cloudinary.models import CloudinaryField
 class Post(models.Model):
     title = models.CharField(max_length=200)
     title_tag = models.CharField(max_length=200)
+    category = models.CharField(max_length=200, default='pending')
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
     posted_on = models.DateTimeField(auto_now=True)
     content_image = CloudinaryField('image', default='placeholder')
@@ -23,3 +24,13 @@ class Post(models.Model):
 
     def total_likes(self):
         return self.likes.count()
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('home')
