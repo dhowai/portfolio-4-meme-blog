@@ -11,3 +11,7 @@ body {
 .post-link {
   text-decoration: none;
 }
+
+.category-link {
+  color: red
+}

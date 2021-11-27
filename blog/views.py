@@ -33,3 +33,14 @@ class DeletePostView(DeleteView):
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
+
+
+class CategoryView(ListView):
+    template_name = 'category_page.html'
+    context_object_name = 'catlist'
+    def get_queryset(self):
+        content = {
+            'cat': self.kwargs['category'],
+            'posts': Post.objects.filter(category=self.kwargs['category'])
+        }
+        return content

@@ -22,7 +22,7 @@
                 <a href="{% url 'post-detail' post.pk %}" class="post-link">
                     <div class="card-body">
                         <h2 class="card-title">{{ post.title }}</h2>
-                        <div class="small text-muted">Posted By: {{ post.author }} in {{ post.category }}
+                        <div class="small text-muted">Posted By: {{ post.author }} in <a class="post-link category-link" href="{% url 'category' post.category %}">{{ post.category }}</a>
                             <small>
                                 {% if user.is_authenticated %}
                                     <a class="post-link" href="{% url 'edit_post' post.pk %}"> - (Edit)</a>
