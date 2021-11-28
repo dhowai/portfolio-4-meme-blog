@@ -13,6 +13,10 @@
                     <button class="btn btn-secondary">Post</button>
                 </form>
             </div>
+            <script>
+                var name = "{{ user.id }}";
+                document.getElementById("user").value = name;
+            </script>
         {% else %}
             <h2>Sorry you need to be logged in to Add a post</h2>
         {% endif %}
