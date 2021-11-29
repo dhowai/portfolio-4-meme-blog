@@ -25,7 +25,24 @@
                     {% else %}
                     <img class="card-img-top" src="{{ post.content_image.url }}">
                     {% endif %}
-                    <div class="small text-muted">{{ post.number_of_likes }}<i class="far fa-thumbs-up"></i></div>
+                    <hr>
+                    <form action="{% url 'like_post' post.pk %}" method="POST">
+                        {% csrf_token %}
+                        {% if user.is_authenticated %}
+                            {% if liked %}
+                                <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-danger">
+                                    Unlike
+                                </button> 
+                            {% else %}
+                                <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary">
+                                    Like
+                                </button> 
+                            {% endif %}
+                        {% else %}
+                            <small><a href="{% url 'login' %}">Login</a> here to like Post or <a href="{% url 'register' %}">Register</a> here if you don't have an account</small> <!--Have it redirect to post after logging in?-->
+                        {% endif %}
+                        {{ total_likes }} <i class="far fa-thumbs-up"></i>
+                    </form>
                 </div>
             </div>
         </div>
