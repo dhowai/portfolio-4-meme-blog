@@ -25,7 +25,8 @@
                     {% else %}
                     <img class="card-img-top" src="{{ post.content_image.url }}">
                     {% endif %}
-                    <hr>
+                    <br>
+                    <br>
                     <form action="{% url 'like_post' post.pk %}" method="POST">
                         {% csrf_token %}
                         {% if user.is_authenticated %}
@@ -43,6 +44,26 @@
                         {% endif %}
                         {{ total_likes }} <i class="far fa-thumbs-up"></i>
                     </form>
+                    <hr>
+                    <div class="blog-comment">
+                        <h3>Comments</h3>
+                        <ul class="comments">
+                            {% if not post.comments.all %}
+                                No comments Yet <a href="#">Add one</a>
+                            {% else %}
+                                {% for comment in post.comments.all %}
+                                <li class="clearfix">
+                                    <img src="" class="avatar" alt="">
+                                    <div class="post-comments">
+                                        <p class="meta">{{ comment.created_on }}<a href="#">{{ comment.name }}</a> says : <i class="pull-right"><a href="#"><small>Reply</small></a></i></p>
+                                        <p>{{ comment.body }}</p>
+                                    </div>
+                                </li>
+                                <hr/>
+                                {% endfor %}
+                            {% endif %}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
