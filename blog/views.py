@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Post, Category
-from .forms import AddPostForm, EditPostForm
+from .models import Post, Category, Comment
+from .forms import AddPostForm, EditPostForm, CommentForm
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 
@@ -26,11 +26,14 @@ class PostDetailView(DetailView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(PostDetailView, self).get_context_data(*args, **kwargs)
-        post_likes = get_object_or_404(Post, id=self.kwargs['pk'])
-        total_likes = post_likes.total_likes()
+        post = get_object_or_404(Post, id=self.kwargs['pk'])
+        total_likes = post.total_likes()
+        comments = post.comments
         liked = False
-        if post_likes.likes.filter(id=self.request.user.id).exists():
+        if post.likes.filter(id=self.request.user.id).exists():
             liked = True
+        context['comments'] = comments
+        context['comment_form'] = CommentForm()
         context['total_likes'] = total_likes
         context["liked"] = liked
         return context
@@ -82,5 +85,21 @@ def LikeView(request, pk):
     else:
         post.likes.add(request.user)
         liked = True
+
+    return HttpResponseRedirect(reverse('post-detail', args=[str(pk)]))
+
+
+def CommentView(request, pk):
+    post = get_object_or_404(Post, id=request.POST.get('post_id'))
+    comments = post.comments
+
+    comment_form = CommentForm(data=request.POST)
+    if comment_form.is_valid():
+        comment_form.instance.name = request.user.username
+        comment = comment_form.save(commit=False)
+        comment.post = post
+        comment.save()
+    else:
+        comment_form = CommentForm()
 
     return HttpResponseRedirect(reverse('post-detail', args=[str(pk)]))

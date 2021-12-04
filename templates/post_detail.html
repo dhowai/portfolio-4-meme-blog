@@ -43,13 +43,14 @@
                             <small><a href="{% url 'login' %}">Login</a> here to like Post or <a href="{% url 'register' %}">Register</a> here if you don't have an account</small> <!--Have it redirect to post after logging in?-->
                         {% endif %}
                         {{ total_likes }} <i class="far fa-thumbs-up"></i>
+                        {{ comments.count }} <i class="far fa-comments"></i>
                     </form>
                     <hr>
                     <div class="blog-comment">
                         <h3>Comments</h3>
                         <ul class="comments">
                             {% if not post.comments.all %}
-                                No comments Yet <a href="#">Add one</a>
+                                <p>No comments Yet</p>
                             {% else %}
                                 {% for comment in post.comments.all %}
                                 <li class="clearfix">
@@ -64,6 +65,20 @@
                             {% endif %}
                         </ul>
                     </div>
+                    <div class="blog-comment">
+                        <h3>Leave a comment:</h3>
+                        <div>
+                            {% if user.is_authenticated %}
+                                <p>{{ user.username }} says: </p>
+                                <form action="{% url 'comment_post' post.pk %}" method="POST">
+                                    {% csrf_token %}
+                                    {{ comment_form }}
+                                    <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary">Submit</button>
+                                </form>
+                            {% else %}
+                                <small><a href="{% url 'login' %}">Login</a> here to comment or <a href="{% url 'register' %}">Register</a> here if you don't have an account</small>
+                            {% endif %}
+                        </div>
                 </div>
             </div>
         </div>
