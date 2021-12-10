@@ -17,20 +17,12 @@
         <!-- Blog entries-->
         <div class="col-lg-8">
             {% for post in post_list %}
-            <!-- Featured blog post-->
+            <!-- Blog posts-->
             <div class="card mb-4">
-                <a href="{% url 'post-detail' post.pk %}" class="post-link">
+                <a href="{% url 'post-detail' post.pk %}">
                     <div class="card-body">
                         <h2 class="card-title">{{ post.title }}</h2>
-                        <div class="small text-muted">Posted By: {{ post.author }} in <a class="post-link category-link" href="{% url 'category' post.category %}">{{ post.category }}</a>
-                            <small>
-                                {% if user.is_authenticated %}
-                                    {% if user.id == post.author.id %}
-                                        <a class="post-link" href="{% url 'edit_post' post.pk %}"> - (Edit)</a>
-                                        <a class="post-link" href="{% url 'delete_post' post.pk %}"> (Delete)</a>
-                                    {% endif %}
-                                {% endif %}
-                            </small>
+                        <div class="small text-muted">Posted By: {{ post.author }} in <a class="category-link" href="{% url 'category' post.category %}">{{ post.category }}</a>
                         </div>
                         <div class="small text-muted">{{ post.posted_on }}</div>
                         {% if "placeholder" in post.content_image.url %}
@@ -38,8 +30,16 @@
                         {% else %}
                         <img class="card-img-top" src="{{ post.content_image.url }}">
                         {% endif %}
+                        <small>
+                            {% if user.is_authenticated %}
+                                {% if user.id == post.author.id %}
+                                    <a href="{% url 'edit_post' post.pk %}"> Edit |</a>
+                                    <a href="{% url 'delete_post' post.pk %}"> Delete</a>
+                                {% endif %}
+                            {% endif %}
+                        </small>
                         <hr>
-                        <div class="small text-muted">{{ post.likes.count }} <i class="far fa-thumbs-up"></i></div>
+                        <div class="small text-muted"><i class="far fa-thumbs-up"></i>{{ post.likes.count }}</div>
                     </div>
                 </a>
             </div>
@@ -47,17 +47,6 @@
         </div>
         <!-- Side widgets-->
         <div class="col-lg-4">
-            <!-- Search widget-->
-            <div class="card mb-4">
-                <div class="card-header">Search</div>
-                <div class="card-body">
-                    <div class="input-group">
-                        <input class="form-control" type="text" placeholder="Enter search term..."
-                            aria-label="Enter search term..." aria-describedby="button-search" />
-                        <button class="btn btn-primary" id="button-search" type="button">Go!</button>
-                    </div>
-                </div>
-            </div>
             <!-- Categories widget-->
             <div class="card mb-4">
                 <div class="card-header">Categories</div>
@@ -72,12 +61,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Side widget-->
-            <div class="card mb-4">
-                <div class="card-header">Side Widget</div>
-                <div class="card-body">You can put anything you want inside of these side widgets. They are easy to
-                    use, and feature the Bootstrap 5 card component!</div>
             </div>
         </div>
     </div>
