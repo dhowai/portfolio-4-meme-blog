@@ -4,7 +4,7 @@ from .models import Post, Category, Comment
 from .forms import AddPostForm, EditPostForm, CommentForm
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
-from cloudinary.forms import cl_init_js_callbacks 
+from cloudinary.forms import cl_init_js_callbacks
 
 
 class HomeView(ListView):
@@ -61,6 +61,17 @@ class EditPostView(UpdateView):
     model = Post
     form_class = EditPostForm
     template_name = 'edit_post.html'
+
+    def loadPicture(request):
+        if request.method == 'POST':
+            form = EditPostForm(request.POST, request.Files)
+            if form.is_valid():
+                form.update()
+                return HttpResponseRedirect('home')
+                
+        form = EditPostForm()
+        context = {'form': form}
+        return render(request, 'edit_post.html', context)
 
 
 class DeletePostView(DeleteView):
