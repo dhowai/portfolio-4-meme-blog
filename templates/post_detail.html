@@ -9,24 +9,22 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <h2 class="card-title">{{ post.title }}</h2>
-                    <div class="small text-muted">Posted By: {{ post.author.first_name }} {{ post.author.last_name }} 
-                        <small>
-                            {% if user.is_authenticated %}
-                                {% if user.id == post.author.id %}
-                                    <a class="post-link" href="{% url 'edit_post' post.pk %}"> - (Edit)</a>
-                                    <a class="post-link" href="{% url 'delete_post' post.pk %}"> (Delete)</a>
-                                {% endif %}
-                            {% endif %}
-                        </small>
-                    </div>
+                    <div class="small text-muted">Posted By: {{ post.author.username }} in <a class="category-link" href="{% url 'category' post.category %}">{{ post.category }}</a></div>
                     <div class="small text-muted">{{ post.posted_on }}</div>
                     {% if "placeholder" in post.content_image.url %}
                     <img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg">
                     {% else %}
                     <img class="card-img-top" src="{{ post.content_image.url }}">
                     {% endif %}
-                    <br>
-                    <br>
+                    <small>
+                        {% if user.is_authenticated %}
+                            {% if user.id == post.author.id %}
+                                <a class="post-link" href="{% url 'edit_post' post.pk %}"> Edit |</a>
+                                <a class="post-link" href="{% url 'delete_post' post.pk %}"> Delete</a>
+                            {% endif %}
+                        {% endif %}
+                    </small>
+                    <hr>
                     <form action="{% url 'like_post' post.pk %}" method="POST">
                         {% csrf_token %}
                         {% if user.is_authenticated %}
@@ -42,21 +40,21 @@
                         {% else %}
                             <small><a href="{% url 'login' %}">Login</a> here to like Post or <a href="{% url 'register' %}">Register</a> here if you don't have an account</small> <!--Have it redirect to post after logging in?-->
                         {% endif %}
-                        {{ total_likes }} <i class="far fa-thumbs-up"></i>
-                        {{ comments.count }} <i class="far fa-comments"></i>
+                        <span><i class="far fa-thumbs-up"></i> {{ total_likes }}</span>
+                        <span><i class="far fa-comments"></i> {{ comments.count }}</span>
                     </form>
                     <hr>
                     <div class="blog-comment">
                         <h3>Comments</h3>
                         <ul class="comments">
                             {% if not post.comments.all %}
-                                <p>No comments Yet</p>
+                                <p>No comments Yet...</p>
                             {% else %}
                                 {% for comment in post.comments.all %}
                                 <li class="clearfix">
                                     <img src="" class="avatar" alt="">
                                     <div class="post-comments">
-                                        <p class="meta">{{ comment.created_on }}<a href="#">{{ comment.name }}</a> says : <i class="pull-right"><a href="#"><small>Reply</small></a></i></p>
+                                        <p class="meta">{{ comment.created_on }} {{ comment.name }} says :</p>
                                         <p>{{ comment.body }}</p>
                                     </div>
                                 </li>
@@ -65,15 +63,16 @@
                             {% endif %}
                         </ul>
                     </div>
+                    <hr>
                     <div class="blog-comment">
                         <h3>Leave a comment:</h3>
                         <div>
                             {% if user.is_authenticated %}
-                                <p>{{ user.username }} says: </p>
+                                <p>Leave a comment as: {{ user.username }}</p>
                                 <form action="{% url 'comment_post' post.pk %}" method="POST">
                                     {% csrf_token %}
                                     {{ comment_form }}
-                                    <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary">Submit</button>
+                                    <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary mt-3">Submit</button>
                                 </form>
                             {% else %}
                                 <small><a href="{% url 'login' %}">Login</a> here to comment or <a href="{% url 'register' %}">Register</a> here if you don't have an account</small>
