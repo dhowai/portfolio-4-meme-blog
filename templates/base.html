@@ -41,7 +41,7 @@
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Categories
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
                             {% for category in category_list %}
                             <a class="dropdown-item" href="/category/{{ category.name }}">{{ category.name|title }}</a>
                             {% endfor %}
@@ -56,8 +56,9 @@
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-user"></i> {{ user.username }} Logged in
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="{% url 'edit_profile' %}"> <i class="fas fa-edit"></i> Edit Profile</a>
+                            <hr class="dropdown-divider">
                             <a class="dropdown-item" href="{% url 'logout' %}"> <i class="fas fa-sign-out-alt"></i> Logout</a>
                         </ul>
                     </li>
