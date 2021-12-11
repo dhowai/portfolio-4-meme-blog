@@ -38,7 +38,8 @@
                                 </button> 
                             {% endif %}
                         {% else %}
-                            <small><a href="{% url 'login' %}">Login</a> here to like Post or <a href="{% url 'register' %}">Register</a> here if you don't have an account</small> <!--Have it redirect to post after logging in?-->
+                            <small><a href="{% url 'login' %}">Login</a> to like</small> <!--Have it redirect to post after logging in?-->
+                            <br>
                         {% endif %}
                         <span><i class="far fa-thumbs-up"></i> {{ total_likes }}</span>
                         <span><i class="far fa-comments"></i> {{ comments.count }}</span>
@@ -75,7 +76,7 @@
                                     <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary mt-3">Submit</button>
                                 </form>
                             {% else %}
-                                <small><a href="{% url 'login' %}">Login</a> here to comment or <a href="{% url 'register' %}">Register</a> here if you don't have an account</small>
+                                <small><a href="{% url 'login' %}">Login</a> to comment</small>
                             {% endif %}
                         </div>
                 </div>
