@@ -45,33 +45,11 @@ class AddPostView(CreateView):
     form_class = AddPostForm
     template_name = 'add_post.html'
 
-    def loadPicture(request):
-        if request.method == 'POST':
-            form = AddPostForm(request.POST, request.Files)
-            if form.is_valid():
-                form.save()
-                return HttpResponseRedirect('home')
-                
-        form = AddPostForm()
-        context = {'form': form}
-        return render(request, 'add_post.html', context)
-
 
 class EditPostView(UpdateView):
     model = Post
     form_class = EditPostForm
     template_name = 'edit_post.html'
-
-    def loadPicture(request):
-        if request.method == 'POST':
-            form = EditPostForm(request.POST, request.Files)
-            if form.is_valid():
-                form.update()
-                return HttpResponseRedirect('home')
-                
-        form = EditPostForm()
-        context = {'form': form}
-        return render(request, 'edit_post.html', context)
 
 
 class DeletePostView(DeleteView):
