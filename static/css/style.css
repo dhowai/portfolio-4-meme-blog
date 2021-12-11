@@ -141,3 +141,10 @@ a {
     background-color: #212529;
   }
 }
+
+.hero-image {
+  background: url("https://res.cloudinary.com/demon13/image/upload/v1639215135/kwrss7mfgofws258rcns.jpg") 50% 0 no-repeat fixed;
+  color: white;
+  height: 650px;
+  padding: 100px 0 0 0; 
+}
