@@ -9,6 +9,7 @@ for item in categories:
     categories_list.append(item)
 
 class AddPostForm(forms.ModelForm):
+    
     class Meta:
         model = Post
         fields = ('title', 'title_tag', 'category', 'author', 'content_image')
@@ -18,7 +19,7 @@ class AddPostForm(forms.ModelForm):
             'title_tag': forms.TextInput(attrs={'class': 'form-control'}),
             'category': forms.Select(choices=categories_list, attrs={'class': 'form-control'}),
             'author': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'user', 'type': 'hidden'}),
-            'content_image': forms.FileInput(attrs={'class': 'form-control'}),
+            'content_image': forms.FileInput(attrs={'class': 'form-control', 'required': True}),
         }
 
 
