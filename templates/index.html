@@ -21,7 +21,7 @@
                 <a href="{% url 'post-detail' post.pk %}">
                     <div class="card-body">
                         <h2 class="card-title">{{ post.title }}</h2>
-                        <div class="small text-muted">Posted By: {{ post.author }} in <a class="category-link" href="{% url 'category' post.category %}">{{ post.category }}</a>
+                        <div class="small text-muted">Posted By: <a href="{% url 'profile_page' post.author.userprofile.id %}">{{ post.author }}</a> in <a class="category-link" href="{% url 'category' post.category %}">{{ post.category }}</a>
                         </div>
                         <div class="small text-muted">{{ post.posted_on }}</div>
                         {% if "placeholder" in post.content_image.url %}
