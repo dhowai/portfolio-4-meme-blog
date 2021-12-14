@@ -11,7 +11,11 @@
                     <img style="width:400px;" title="" class="img-thumbnail" src="https://res.cloudinary.com/demon13/image/upload/v1639504110/default_profile_pic_qzyzr6.png">
                 {% else %}
                     <img style="width:800px;" title="" class="img-thumbnail" src="{{ page_user.profile_pic.url }}">
-                {% endif %} 
+                {% endif %}
+                {% if user.id == userprofile.user.id %}
+                    <a href="{% url 'edit_profile_page' user.userprofile.id %}"> <i class="fas fa-edit"></i> Edit Profile |</a>
+                    <a href="{% url 'edit_user_settings' %}"> <i class="fas fa-edit"></i>  Edit Settings</a>
+                {% endif %}
             </div>
             <div class="col-md-4 mt-4">
                 <div class="table-responsive">

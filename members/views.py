@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
-from .forms import RegisterForm, EditProfileForm, PasswordChangingForm, ProfilePageForm, EditProfilePageForm
+from .forms import RegisterForm, EditUserSettingsForm, PasswordChangingForm, ProfilePageForm, EditProfilePageForm
 from memeblog.models import UserProfile
 
 
@@ -12,9 +12,9 @@ class UserRegisterView(generic.CreateView):
     success_url = reverse_lazy('login')
 
 
-class UserEditProfileView(generic.UpdateView):
-    form_class = EditProfileForm
-    template_name = 'registration/edit_profile.html'
+class UserEditSettingsView(generic.UpdateView):
+    form_class = EditUserSettingsForm
+    template_name = 'registration/edit_user_settings.html'
     success_url = reverse_lazy('home')
 
     def get_object(self):
