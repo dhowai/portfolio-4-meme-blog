@@ -7,10 +7,10 @@
     <div class="panel-body inf-content mt-3">
         <div class="row">
             <div class="col-md-6">
-                {% if "default" in post.content_image.url %}
-                    <img style="width:800px;" title="" class="img-circle img-thumbnail isTooltip" data-original-title="Usuario" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg">
+                {% if "default" in page_user.profile_pic.url %}
+                    <img style="width:400px;" title="" class="img-thumbnail" src="https://res.cloudinary.com/demon13/image/upload/v1639504110/default_profile_pic_qzyzr6.png">
                 {% else %}
-                    <img style="width:800px;" title="" class="img-circle img-thumbnail isTooltip" data-original-title="Usuario" src="{{ page_user.profile_pic.url }}">
+                    <img style="width:800px;" title="" class="img-thumbnail" src="{{ page_user.profile_pic.url }}">
                 {% endif %} 
             </div>
             <div class="col-md-4 mt-4">

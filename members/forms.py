@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from django import forms
+from memeblog.models import UserProfile
 
 
 class RegisterForm(UserCreationForm):
@@ -40,3 +41,25 @@ class PasswordChangingForm(PasswordChangeForm):
     class Meta:
         model = User
         fields = ('old_password', 'new_password1', 'new_password2', )
+
+
+class EditProfilePageForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ('profile_pic', 'bio')
+
+        widgets = {
+            'profile_pic': forms.FileInput(attrs={'class': 'form-control'}),
+            'bio': forms.Textarea(attrs={'class': 'form-control'}),
+        }
+
+
+class ProfilePageForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ('profile_pic', 'bio')
+
+        widgets = {
+            'profile_pic': forms.FileInput(attrs={'class': 'form-control'}),
+            'bio': forms.Textarea(attrs={'class': 'form-control'}),
+        }

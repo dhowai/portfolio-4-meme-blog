@@ -58,6 +58,12 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="{% url 'edit_profile' %}"> <i class="fas fa-edit"></i> Edit Profile</a>
+                            {% if user.userprofile.id %}
+                                <a class="dropdown-item" href="{% url 'edit_profile_page' user.userprofile.id %}"> <i class="fas fa-edit"></i> Edit Profile Page</a>
+                                <a class="dropdown-item" href="{% url 'profile_page' user.userprofile.id %}"> <i class="fas fa-key"></i> Show Profile Page</a>
+                            {% else %}
+                                <a class="dropdown-item" href="{% url 'create_profile_page' %}"> <i class="fas fa-edit"></i> Create Profile Page</a>
+                            {% endif %}
                             <a class="dropdown-item" href="{% url 'change_password' %}"> <i class="fas fa-key"></i> Change Password</a>
                             <hr class="dropdown-divider">
                             <a class="dropdown-item" href="{% url 'logout' %}"> <i class="fas fa-sign-out-alt"></i> Logout</a>
