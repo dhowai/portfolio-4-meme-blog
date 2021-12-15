@@ -18,7 +18,7 @@ class AddPostForm(forms.ModelForm):
             'title_tag': forms.TextInput(attrs={'class': 'form-control'}),
             'category': forms.Select(choices=categories_list, attrs={'class': 'form-control'}),
             'author': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'user', 'type': 'hidden'}),
-            'content_image': forms.FileInput(attrs={'class': 'form-control'}),
+            'content_image': forms.FileInput(attrs={'class': 'form-control', 'required': True}),
         }
 
 
@@ -39,7 +39,10 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('body',)
+        labels = {
+            'body': ''
+        }
 
         widgets = {
-            'body': forms.Textarea(attrs={'class': 'form-control'}),
+            'body': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Write Your Comment Here'}),
         }
