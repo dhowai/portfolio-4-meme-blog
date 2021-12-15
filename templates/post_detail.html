@@ -53,7 +53,11 @@
                             {% else %}
                                 {% for comment in post.comments.all %}
                                 <li class="clearfix">
-                                    <img src="" class="avatar" alt="">
+                                    {% if "default" in profile.profile_pic.url %}
+                                        <img class="avatar" src="https://res.cloudinary.com/demon13/image/upload/v1639504110/default_profile_pic_qzyzr6.png">
+                                    {% else %}
+                                        <img class="avatar" src="{{ profile.profile_pic.url }}">
+                                    {% endif %}
                                     <div class="post-comments">
                                         <p class="meta">{{ comment.created_on }} {{ comment.name }} says :</p>
                                         <p>{{ comment.body }}</p>
