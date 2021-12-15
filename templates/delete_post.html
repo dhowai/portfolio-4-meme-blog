@@ -6,14 +6,13 @@
     <div class="row">
         {% if user.is_authenticated %}
             {% if user.id == post.author.id %}
-                <h1>Delete: {{ post.title }}</h1>
-                <div class="mb-3">
+                <div class="col-md-8 mt-3 mb-3 offset-md-2">
                     <form method="POST">
+                        <h3 class="mb-3">Delete: {{ post.title }}</h3>
                         {% csrf_token %}
                         <strong>Are you sure?</strong>
                         <br>
-                        <br>
-                        <button class="btn btn-secondary">Delete Post</button>
+                        <input class="btn btn-danger mt-3" type="submit" value="Delete">
                     </form>
                 </div>
             {% else %}
