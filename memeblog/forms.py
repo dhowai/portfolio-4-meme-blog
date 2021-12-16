@@ -1,5 +1,6 @@
 from django import forms
 from .models import Post, Category, Comment
+from mptt.forms import TreeNodeChoiceField
 
 categories = Category.objects.all().values_list('name', 'name')
 
@@ -34,13 +35,16 @@ class EditPostForm(forms.ModelForm):
 
 
 class CommentForm(forms.ModelForm):
+
     class Meta:
         model = Comment
-        fields = ('body',)
+        fields = ('body', 'parent',)
         labels = {
-            'body': ''
+            'body': '',
+            'parent': ''
         }
 
         widgets = {
             'body': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Write Your Comment Here'}),
+            'parent': forms.Select(attrs={'class': 'd-none', 'required': False}),
         }

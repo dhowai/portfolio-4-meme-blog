@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from cloudinary.models import CloudinaryField
+from mptt.models import MPTTModel, TreeForeignKey
 
 
 class Post(models.Model):
@@ -36,15 +37,17 @@ class Category(models.Model):
         return reverse('home')
 
 
-class Comment(models.Model):
+class Comment(MPTTModel):
 
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     name = models.CharField(max_length=100)
+    parent = TreeForeignKey('self', on_delete=models.CASCADE,
+                            null=True, blank=True, related_name='children')
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
 
-    class Meta:
-        ordering = ['-created_on']
+    class MPTTMeta:
+        order_insertion_by = ['created_on']
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'memeblog',
     'members',
+    'mptt',
 ]
 
 SITE_ID = 1
