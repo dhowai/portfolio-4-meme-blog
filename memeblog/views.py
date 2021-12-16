@@ -28,7 +28,6 @@ class PostDetailView(DetailView):
     def get_context_data(self, *args, **kwargs):
         context = super(PostDetailView, self).get_context_data(*args, **kwargs)
         post = get_object_or_404(Post, id=self.kwargs['pk'])
-        profile = get_object_or_404(UserProfile, id=self.kwargs['pk']) # Gets the image of user who made the post, fix
         total_likes = post.total_likes()
         comments = post.comments
         liked = False
@@ -38,7 +37,6 @@ class PostDetailView(DetailView):
         context['comment_form'] = CommentForm()
         context['total_likes'] = total_likes
         context["liked"] = liked
-        context["profile"] = profile
         return context
 
 
@@ -111,7 +109,7 @@ def LikeView(request, pk):
         post.likes.add(request.user)
         liked = True
 
-    return HttpResponseRedirect(reverse('post-detail', args=[str(pk)]))
+    return HttpResponseRedirect(reverse('post_detail', args=[str(pk)]))
 
 
 def CommentView(request, pk):
@@ -127,4 +125,4 @@ def CommentView(request, pk):
     else:
         comment_form = CommentForm()
 
-    return HttpResponseRedirect(reverse('post-detail', args=[str(pk)]))
+    return HttpResponseRedirect(reverse('post_detail', args=[str(pk)]))

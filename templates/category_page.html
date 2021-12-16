@@ -10,7 +10,7 @@
                 {% for post in catlist.posts %}
                     <!-- Featured blog post-->
                     <div class="card mb-4">
-                        <a href="{% url 'post-detail' post.pk %}">
+                        <a href="{% url 'post_detail' post.pk %}">
                             <div class="card-body">
                                 <h2 class="card-title">{{ post.title }}</h2>
                                 <div class="small text-muted">Posted By: <a href="{% url 'profile_page' post.author.userprofile.id %}">{{ post.author }}</a> in {{ post.category }}
