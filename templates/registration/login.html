@@ -2,24 +2,54 @@
 {% block title %} Login {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 mt-5 mb-5 offset-md-4 card">
-            <form method="POST">
-                <h5 class="mt-3">Login to Memebase</h5>
-                {% csrf_token %}
-                <p>
-                    <label for="id_username">Username:</label>
-                    <input type="text" class="form-control" required id="id_username" name="username">
-                </p>
-                <p>
-                    <label for="id_password">Password:</label>
-                    <input type="password" class="form-control" required id="id_password" name="password">
-                </p>
-                <button class="btn btn-secondary mb-3">Login</button>
-                <p>Not a memeber? <a href="{% url 'register' %}">Register</a></p>
-            </form>
+<div class="container-fluid">
+    <div class="row no-gutter">
+        <div class="col-md-6 bg-light">
+            <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-md-12  mx-auto">
+                            <form method="POST">
+                                <h4 class="mb-3 font-weight-bold">Login</h4>
+                                {% csrf_token %}
+                                <p>
+                                    <label for="id_username">Username:</label>
+                                    <input type="text" class="form-control" required id="id_username" name="username">
+                                </p>
+                                <p>
+                                    <label for="id_password">Password:</label>
+                                    <input type="password" class="form-control" required id="id_password"
+                                        name="password">
+                                </p>
+                                {% if form.errors %}
+                                <div class="alert alert-primary" role="alert">
+                                    Error: Username or Password not correct!
+                                </div>
+                                {% endif %}
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-secondary mb-3">Enter Memebase</button>
+                                </div>
+                                <p>Not a memeber? <a href="{% url 'register' %}">Register</a></p>
+                                <hr class="mb-3">
+                                <p class="small text-center">By signing in to your account, you agree to Blog <a
+                                        href="">Terms of
+                                        Service</a> and
+                                    consent to
+                                    our <a href="">Cookie Policy</a> and <a href="">Privacy Policy</a>. This site is not
+                                    protected
+                                    by reCAPTCHA and
+                                    is a demonstration website
+                                    for learning purposes only.
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="col-md-6 d-none d-md-flex log-bg-image"></div>
     </div>
 </div>
+
+
 {% endblock %}

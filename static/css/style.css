@@ -155,4 +155,21 @@ a {
   -moz-border-radius:10px;
   border-radius:10px;
   box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.3);
-}			  
+}		
+
+.reg-bg-image {
+  background-image: url('https://res.cloudinary.com/demon13/image/upload/v1639770804/mo-a9-rD_z-Je4-unsplash_zzmw7d.jpg');
+  background-size: cover;
+  background-position: center center;
+}
+
+.log-bg-image {
+  background-image: url('https://res.cloudinary.com/demon13/image/upload/v1639771037/mo-nm8b-BUnzuk-unsplash_ul8hr7.jpg');
+  background-size: cover;
+  background-position: center center;
+}
+
+.login, .register, .image {
+  min-height: 87vh;
+}
+

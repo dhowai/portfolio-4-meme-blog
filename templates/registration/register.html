@@ -2,17 +2,30 @@
 {% block title %} Register {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 mt-3 mb-3 offset-md-2 card">
-            <form method="POST">
-                <h5 class="mt-3">Register an account with Memebase <br> Join fellow meme enthusiasts</h5>
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button class="btn btn-secondary mb-3">Register</button>
-                <p>Already a memeber? <a href="{% url 'login' %}">Login</a></p>
-            </form>
+<div class="container-fluid">
+    <div class="row no-gutter">
+        <div class="col-md-6 bg-light">
+            <div class="register d-flex align-items-center py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-md-12  mx-auto">
+                            <form method="POST">
+                                <h4 class="mb-3 font-weight-bold">
+                                    Register an account with Memebase <br> Join fellow meme enthusiasts
+                                </h4>
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-secondary mb-3">Register</button>
+                                </div>
+                                <p>Already a memeber? <a href="{% url 'login' %}">Login</a></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="col-md-6 d-none d-md-flex reg-bg-image"></div>
     </div>
 </div>
 {% endblock %}
