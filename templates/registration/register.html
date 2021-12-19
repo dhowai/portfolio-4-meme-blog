@@ -16,7 +16,7 @@
                                 {% csrf_token %}
                                 {{ form.as_p }}
                                 <div class="d-grid gap-2">
-                                    <button class="btn btn-secondary mb-3">Register</button>
+                                    <input class="btn btn-primary mb-3" type="submit" value="Register">
                                 </div>
                                 <p>Already a memeber? <a href="{% url 'login' %}">Login</a></p>
                             </form>

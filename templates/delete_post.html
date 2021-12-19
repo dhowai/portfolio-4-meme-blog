@@ -2,25 +2,33 @@
 {% block title %} Delete Post {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        {% if user.is_authenticated %}
-            {% if user.id == post.author.id %}
-                <div class="col-md-8 mt-3 mb-3 offset-md-2">
-                    <form method="POST">
-                        <h3 class="mb-3">Delete: {{ post.title }}</h3>
-                        {% csrf_token %}
-                        <strong>Are you sure?</strong>
-                        <br>
-                        <input class="btn btn-danger mt-3" type="submit" value="Delete">
-                    </form>
+        <div class="col-md-12 bg-light">
+            <div class="login d-flex align-items-center py-5">
+                <div class="container card py-5 px-5">
+                    <div class="row text-center">
+                        {% if user.is_authenticated %}
+                        {% if user.id == post.author.id %}
+                        <form method="POST">
+                            <h3 class="mb-3">Delete Post: {{ post.title }}</h3>
+                            {% csrf_token %}
+                            <strong>Are you sure?</strong>
+                            <br>
+                            <div class="d-grid gap-2">
+                                <input class="btn btn-danger mt-3" type="submit" value="Delete">
+                            </div>
+                        </form>
+                        {% else %}
+                        <h2>Sorry you cannot Delete this post</h2>
+                        {% endif %}
+                        {% else %}
+                        <h2>Sorry you need to be logged in to Delete this post</h2>
+                        {% endif %}
+                    </div>
                 </div>
-            {% else %}
-                <h2>Sorry you cannot Delete this post</h2>
-            {% endif %}
-        {% else %}
-            <h2>Sorry you need to be logged in to Delete this post</h2>
-        {% endif %}
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

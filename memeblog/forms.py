@@ -1,6 +1,5 @@
 from django import forms
 from .models import Post, Category, Comment
-from mptt.forms import TreeNodeChoiceField
 
 categories = Category.objects.all().values_list('name', 'name')
 
