@@ -38,13 +38,11 @@ class CommentForm(forms.ModelForm):
 
     class Meta:
         model = Comment
-        fields = ('body', 'parent',)
+        fields = ('body',)
         labels = {
-            'body': '',
-            'parent': ''
+            'body': ''
         }
 
         widgets = {
             'body': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Write Your Comment Here'}),
-            'parent': forms.Select(attrs={'class': 'd-none', 'required': False}),
         }

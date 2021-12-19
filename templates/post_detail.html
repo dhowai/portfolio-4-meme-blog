@@ -9,10 +9,7 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <h2 class="card-title">{{ post.title }}</h2>
-                    <div class="small text-muted">Posted By: <a
-                            href="{% url 'profile_page' post.author.userprofile.id %}">{{ post.author }}</a> in <a
-                            class="category-link" href="{% url 'category' post.category %}">{{ post.category }}</a>
-                    </div>
+                    <div class="small text-muted">Posted By: <a href="{% url 'profile_page' post.author.userprofile.id %}">{{ post.author }}</a> in <a class="category-link" href="{% url 'category' post.category %}">{{ post.category }}</a></div>
                     <div class="small text-muted">{{ post.posted_on }}</div>
                     {% if "placeholder" in post.content_image.url %}
                     <img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg">
@@ -21,29 +18,28 @@
                     {% endif %}
                     <small>
                         {% if user.is_authenticated %}
-                        {% if user.id == post.author.id %}
-                        <a class="post-link" href="{% url 'edit_post' post.pk %}"> Edit |</a>
-                        <a class="post-link" href="{% url 'delete_post' post.pk %}"> Delete</a>
-                        {% endif %}
+                            {% if user.id == post.author.id %}
+                                <a class="post-link" href="{% url 'edit_post' post.pk %}"> Edit |</a>
+                                <a class="post-link" href="{% url 'delete_post' post.pk %}"> Delete</a>
+                            {% endif %}
                         {% endif %}
                     </small>
                     <hr>
                     <form action="{% url 'like_post' post.pk %}" method="POST">
                         {% csrf_token %}
                         {% if user.is_authenticated %}
-                        {% if liked %}
-                        <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-danger">
-                            Unlike
-                        </button>
+                            {% if liked %}
+                                <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-danger">
+                                    Unlike
+                                </button> 
+                            {% else %}
+                                <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary">
+                                    Like
+                                </button> 
+                            {% endif %}
                         {% else %}
-                        <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary">
-                            Like
-                        </button>
-                        {% endif %}
-                        {% else %}
-                        <small><a href="{% url 'login' %}">Login</a> to like</small>
-                        <!--Have it redirect to post after logging in?-->
-                        <br>
+                            <small><a href="{% url 'login' %}">Login</a> to like</small> <!--Have it redirect to post after logging in?-->
+                            <br>
                         {% endif %}
                         <span><i class="far fa-thumbs-up"></i> {{ total_likes }}</span>
                         <span><i class="far fa-comments"></i> {{ comments.count }}</span>
@@ -52,26 +48,19 @@
                     <div class="blog-comment">
                         <h3>Comments</h3>
                         <ul class="comments">
-                            {% load mptt_tags %}
-                            {% recursetree comments.all %}
-                            <li >
-                                <img class="avatar"
-                                    src="https://res.cloudinary.com/demon13/image/upload/v1639504110/default_profile_pic_qzyzr6.png">
-                                <div class="post-comments">
-                                    <p class="meta">{{ node.created_on }} {{ node.name }} 
-                                        says :
-                                    <p id="{{ node.id }}" class=" d-flex justify-content-between">{{ node.body }}{% if node.level < 3 %}
-                                        <button class="button" onclick="myFunction({{ node.id }})">Reply</button>
-                                        {% endif %}</p></p>
-
-                                </div>
-                            </li>
-                            {% if not node.is_leaf_node %}
-                            <ul class="comments">
-                                <li>{{ children }}</li>
-                            </ul>
+                            {% if not post.comments.all %}
+                                <p>No comments Yet...</p>
+                            {% else %}
+                                {% for comment in post.comments.all %}
+                                <li class="clearfix">  
+                                    <img class="avatar" src="https://res.cloudinary.com/demon13/image/upload/v1639504110/default_profile_pic_qzyzr6.png">                                                                                       
+                                    <div class="post-comments">
+                                        <p class="meta">{{ comment.created_on }} {{ comment.name }}</a> says :</p>
+                                        <p>{{ comment.body }}</p>
+                                    </div>
+                                </li>
+                                {% endfor %}
                             {% endif %}
-                            {% endrecursetree %}
                         </ul>
                     </div>
                     <hr>
@@ -79,15 +68,14 @@
                         <h3>Leave a comment:</h3>
                         <div>
                             {% if user.is_authenticated %}
-                            <p>Leave a comment as: {{ user.username }}</p>
-                            <form action="{% url 'comment_post' post.pk %}" method="POST">
-                                {% csrf_token %}
-                                {{ comment_form }}
-                                <button type="submit" name="post_id" value="{{ post.id }}"
-                                    class="btn btn-primary mt-3">Submit</button>
-                            </form>
+                                <p>Leave a comment as: {{ user.username }}</p>
+                                <form action="{% url 'comment_post' post.pk %}" method="POST">
+                                    {% csrf_token %}
+                                    {{ comment_form }}
+                                    <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary mt-3">Submit</button>
+                                </form>
                             {% else %}
-                            <small><a href="{% url 'login' %}">Login</a> to comment</small>
+                                <small><a href="{% url 'login' %}">Login</a> to comment</small>
                             {% endif %}
                         </div>
                     </div>
@@ -95,26 +83,5 @@
             </div>
         </div>
     </div>
-    <script>
-         function formExit() {
-        document.getElementById("newForm").remove();
-  }
-        function myFunction(id) {
-
-            if (document.contains(document.getElementById("newForm"))) {
-            document.getElementById("newForm").remove();
-    }
-
-            var a = document.getElementById(id);
-            a.insertAdjacentHTML('afterend', '<form id="newForm" action="/comment/1" method="POST"> \
-                                <div class="d-flex justify-content-between"><h2></h2><div><button type="button" class="btn btn-outline-secondary" onclick="formExit()"">Close</button></div></div> \
-                                <textarea name="body" cols="40" rows="10" class="form-control" placeholder="Write Your Comment Here" required="" id="id_body"></textarea> \
-                                <select name="parent" class="d-none" id="id_parentt"> \
-                                <option value="' + id + '" selected="' + id + '"></option> \
-                                </select> \
-                                {% csrf_token %} \
-                                <button type="submit" name="post_id" value="1" class="btn btn-primary mt-3">Submit</button> \
-                                </form>')
-        };
-    </script>
-    {% endblock %}
+</div>
+{% endblock %}
