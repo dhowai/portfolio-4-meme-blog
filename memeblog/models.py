@@ -51,7 +51,7 @@ class Comment(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
-    bio = models.TextField()
+    bio = models.TextField(blank=True)
     profile_pic = CloudinaryField('image', default='default')
 
     def __str__(self):
