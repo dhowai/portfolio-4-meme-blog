@@ -4,6 +4,9 @@ from .models import Post, Category, Comment, UserProfile
 from .forms import AddPostForm, EditPostForm, CommentForm
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
+from django.forms import model_to_dict
 
 
 class HomeView(ListView):
@@ -39,22 +42,36 @@ class PostDetailView(DetailView):
         return context
 
 
-class AddPostView(CreateView):
+class AddPostView(SuccessMessageMixin, CreateView):
     model = Post
     form_class = AddPostForm
     template_name = 'add_post.html'
+    success_message = "Your Post Called %(title)s Has Been Created in %(category)s"
 
 
-class EditPostView(UpdateView):
+class EditPostView(SuccessMessageMixin, UpdateView):
     model = Post
     form_class = EditPostForm
     template_name = 'edit_post.html'
+    success_message = "Your Post Called %(title)s Has Been Updated in %(category)s"
 
 
-class DeletePostView(DeleteView):
+class DeletePostView(SuccessMessageMixin, DeleteView):
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
+    success_message = "Your Post Called %(title)s Has Been Deleted"
+
+    def delete_form_valid(self, object):
+        success_message = self.get_success_message(model_to_dict(object))
+        if success_message:
+            messages.success(self.request, success_message)
+
+    def delete(self, *args, **kwargs):
+        object = self.get_object()
+        result = super().delete(*args, **kwargs)
+        self.delete_form_valid(object)
+        return result
 
 
 class CategoryView(ListView):
