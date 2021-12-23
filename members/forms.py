@@ -5,14 +5,22 @@ from memeblog.models import UserProfile
 
 
 class RegisterForm(UserCreationForm):
-    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control'}))
-    first_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    last_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    """
+    This form handles the user registration extending from
+    the UsercreationForm.
+    """
+    email = forms.EmailField(widget=forms.EmailInput(
+        attrs={'class': 'form-control'}))
+    first_name = forms.CharField(max_length=100, widget=forms.TextInput(
+        attrs={'class': 'form-control'}))
+    last_name = forms.CharField(max_length=100, widget=forms.TextInput(
+        attrs={'class': 'form-control'}))
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
-
+        fields = (
+            'username', 'first_name',
+            'last_name', 'email', 'password1', 'password2')
 
     def __init__(self, *args, **kwargs):
         super(RegisterForm, self).__init__(*args, **kwargs)
@@ -23,10 +31,18 @@ class RegisterForm(UserCreationForm):
 
 
 class EditUserSettingsForm(UserChangeForm):
-    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control'}))
-    first_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    last_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    username = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    """
+    This form handles the edit user setting extending from
+    the UserChangeForm.
+    """
+    email = forms.EmailField(widget=forms.EmailInput(
+        attrs={'class': 'form-control'}))
+    first_name = forms.CharField(max_length=100, widget=forms.TextInput(
+        attrs={'class': 'form-control'}))
+    last_name = forms.CharField(max_length=100, widget=forms.TextInput(
+        attrs={'class': 'form-control'}))
+    username = forms.CharField(max_length=100, widget=forms.TextInput(
+        attrs={'class': 'form-control'}))
 
     class Meta:
         model = User
@@ -34,16 +50,30 @@ class EditUserSettingsForm(UserChangeForm):
 
 
 class PasswordChangingForm(PasswordChangeForm):
-    old_password = forms.CharField(label="Old Password", max_length=100, widget=forms.PasswordInput(attrs={'class': 'form-control'}))
-    new_password1 = forms.CharField(label="New Password", max_length=100,  widget=forms.PasswordInput(attrs={'class': 'form-control', 'type':'password'}))
-    new_password2 = forms.CharField(label="Password Confirmation", max_length=100,  widget=forms.PasswordInput(attrs={'class': 'form-control', 'type':'password'}))
-    
+    """
+    This form handles the change of user password extending
+    from the PassWordChangeForm.
+    """
+    old_password = forms.CharField(
+        label="Old Password", max_length=100, widget=forms.PasswordInput(
+            attrs={'class': 'form-control'}))
+    new_password1 = forms.CharField(
+        label="New Password", max_length=100,  widget=forms.PasswordInput(
+            attrs={'class': 'form-control', 'type': 'password'}))
+    new_password2 = forms.CharField(
+        label="Confirm Password", max_length=100, widget=forms.PasswordInput(
+            attrs={'class': 'form-control', 'type': 'password'}))
+
     class Meta:
         model = User
         fields = ('old_password', 'new_password1', 'new_password2', )
 
 
 class EditProfilePageForm(forms.ModelForm):
+    """
+    This form handles the edit user profile page
+    information.
+    """
     class Meta:
         model = UserProfile
         fields = ('profile_pic', 'bio')
@@ -55,6 +85,10 @@ class EditProfilePageForm(forms.ModelForm):
 
 
 class ProfilePageForm(forms.ModelForm):
+    """
+    This form handles the user profile information
+    page.
+    """
     class Meta:
         model = UserProfile
         fields = ('profile_pic', 'bio')
