@@ -41,7 +41,7 @@
                             <small><a href="{% url 'login' %}">Login</a> to like</small> <!--Have it redirect to post after logging in?-->
                             <br>
                         {% endif %}
-                        <span><i class="far fa-thumbs-up"></i> {{ total_likes }}</span>
+                        <span><i class="far fa-thumbs-up"></i> {{ total_likes.count }}</span>
                         <span><i class="far fa-comments"></i> {{ comments.count }}</span>
                     </form>
                     <hr>

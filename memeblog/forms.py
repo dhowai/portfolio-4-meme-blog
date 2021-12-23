@@ -57,7 +57,7 @@ class EditPostForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     """
     This form allows the user to make comments
-    on a posts page.
+    on a post's page.
     """
     class Meta:
         model = Comment
