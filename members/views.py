@@ -4,7 +4,9 @@ from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from memeblog.models import UserProfile
-from .forms import RegisterForm, EditUserSettingsForm, PasswordChangingForm, ProfilePageForm, EditProfilePageForm
+from .forms import (
+    RegisterForm, EditUserSettingsForm,
+    PasswordChangingForm, ProfilePageForm, EditProfilePageForm)
 
 
 class UserRegisterView(SuccessMessageMixin, generic.CreateView):

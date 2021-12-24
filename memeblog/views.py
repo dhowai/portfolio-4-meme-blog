@@ -4,7 +4,8 @@ from django.http import HttpResponseRedirect
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.forms import model_to_dict
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import (
+    ListView, DetailView, CreateView, UpdateView, DeleteView)
 from .models import Post, Category
 from .forms import AddPostForm, EditPostForm, CommentForm
 
