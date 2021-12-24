@@ -9,7 +9,7 @@ class Post(models.Model):
     Modal the handles the posts being made.
     """
     title = models.CharField(max_length=200, unique=True)
-    category = models.CharField(max_length=200)
+    category = models.TextField()
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts")
     posted_on = models.DateTimeField(auto_now=True)

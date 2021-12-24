@@ -9,13 +9,12 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <h2 class="card-title">{{ post.title }}</h2>
-                    <div class="small text-muted">Posted By: <a href="{% url 'profile_page' post.author.userprofile.id %}">{{ post.author }}</a> in <a class="category-link" href="{% url 'category' post.category %}">{{ post.category }}</a></div>
+                    <div class="small text-muted">Posted By:
+                        <a href="{% url 'profile_page' post.author.userprofile.id %}">{{ post.author }}</a> in
+                        <a class="category-link" href="{% url 'category' post.category %}">{{ post.category }}</a>
+                    </div>
                     <div class="small text-muted">{{ post.posted_on }}</div>
-                    {% if "placeholder" in post.content_image.url %}
-                    <img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg">
-                    {% else %}
-                    <img class="card-img-top" src="{{ post.content_image.url }}">
-                    {% endif %}
+                    <img class="card-img-top" alt="post image" src="{{ post.content_image.url }}">
                     <small>
                         {% if user.is_authenticated %}
                             {% if user.id == post.author.id %}
@@ -53,9 +52,9 @@
                             {% else %}
                                 {% for comment in post.comments.all %}
                                 <li class="clearfix">  
-                                    <img class="avatar" src="https://res.cloudinary.com/demon13/image/upload/v1639504110/default_profile_pic_qzyzr6.png">                                                                                       
+                                    <img class="avatar" alt="default profile picture" src="https://res.cloudinary.com/demon13/image/upload/v1639504110/default_profile_pic_qzyzr6.png">                                                                                       
                                     <div class="post-comments">
-                                        <p class="meta">{{ comment.created_on }} {{ comment.name }}</a> says :</p>
+                                        <p class="meta">{{ comment.created_on }} {{ comment.name }} says :</p>
                                         <p>{{ comment.body }}</p>
                                     </div>
                                 </li>
@@ -71,7 +70,7 @@
                                 <p>Leave a comment as: {{ user.username }}</p>
                                 <form action="{% url 'comment_post' post.pk %}" method="POST">
                                     {% csrf_token %}
-                                    {{ comment_form }}
+                                    {{ comment_form.as_p }}
                                     <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary mt-3">Submit</button>
                                 </form>
                             {% else %}

@@ -6,10 +6,10 @@
     <div class="container">
         <div class="col-md-8 offset-md-2">
             {% for message in messages %}
-                <div class="alert alert-success {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
-                    {{ message | safe }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
+            <div class="alert alert-success {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                {{ message | safe }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
             {% endfor %}
         </div>
         <div class="text-center my-5">
@@ -26,29 +26,27 @@
             {% for post in post_list %}
             <!-- Blog posts-->
             <div class="card mb-4">
-                <a href="{% url 'post_detail' post.pk %}">
-                    <div class="card-body">
+                <div class="card-body">
+                    <a href="{% url 'post_detail' post.pk %}">
                         <h2 class="card-title">{{ post.title }}</h2>
-                        <div class="small text-muted">Posted By: <a href="{% url 'profile_page' post.author.userprofile.id %}">{{ post.author }}</a> in <a class="category-link" href="{% url 'category' post.category %}">{{ post.category }}</a>
-                        </div>
-                        <div class="small text-muted">{{ post.posted_on }}</div>
-                        {% if "placeholder" in post.content_image.url %}
-                        <img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg">
-                        {% else %}
-                        <img class="card-img-top" src="{{ post.content_image.url }}">
-                        {% endif %}
-                        <small>
-                            {% if user.is_authenticated %}
-                                {% if user.id == post.author.id %}
-                                    <a href="{% url 'edit_post' post.pk %}"> Edit |</a>
-                                    <a href="{% url 'delete_post' post.pk %}"> Delete</a>
-                                {% endif %}
-                            {% endif %}
-                        </small>
-                        <hr>
-                        <div class="small text-muted"><i class="far fa-thumbs-up"></i>{{ post.likes.count }}</div>
+                    </a>
+                    <div class="small text-muted">Posted By:
+                        <a href="{% url 'profile_page' post.author.userprofile.id %}">{{ post.author }}</a> in
+                        <a class="category-link" href="{% url 'category' post.category %}">{{ post.category }}</a>
                     </div>
-                </a>
+                    <div class="small text-muted">{{ post.posted_on }}</div>
+                    <img class="card-img-top" alt="post image" src="{{ post.content_image.url }}">
+                    <small>
+                        {% if user.is_authenticated %}
+                        {% if user.id == post.author.id %}
+                        <a href="{% url 'edit_post' post.pk %}"> Edit |</a>
+                        <a href="{% url 'delete_post' post.pk %}"> Delete</a>
+                        {% endif %}
+                        {% endif %}
+                    </small>
+                    <hr>
+                    <div class="small text-muted"><i class="far fa-thumbs-up"></i>{{ post.likes.count }}</div>
+                </div>
             </div>
             {% endfor %}
         </div>
