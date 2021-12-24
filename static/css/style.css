@@ -283,3 +283,9 @@ div.social-links {
   margin-right: 5px;
   margin-bottom: 5px
 }
+
+@media (max-width: 990px) {
+  #info {
+    display: none;
+  }
+}
