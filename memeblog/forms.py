@@ -14,7 +14,7 @@ class AddPostForm(forms.ModelForm):
     Using this form the user can add a post to the site.
     The title needs to be unique, the categories are
     predetermined and the user can only choose what's
-    in the list. The author field is hidden as the 
+    in the list. The author field is hidden as the
     javascript gets the information of the user.
     The content image is the main part of the post
     and like all the other fields, it is required.
