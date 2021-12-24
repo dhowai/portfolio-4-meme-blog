@@ -42,7 +42,7 @@
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Categories
                         </a>
-                        <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
+                        <div class="dropdown-menu dropdown-menu-dark">
                             {% for category in category_list %}
                             <a class="dropdown-item" href="/category/{{ category.name }}">{{ category.name|title }}</a>
                             {% endfor %}
