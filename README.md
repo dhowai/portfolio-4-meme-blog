@@ -2,180 +2,137 @@
 
 ![Screen sizes](image here)
 
-<img src="media/images/Home.png">
+This project was focused on creating a Full-Stack developed site using the Django Framework with the use of a database. 
+
+Memebase is a reddit style blog for memes, the users can come here to share/view memes in various categories. A user can visit to purely view the content, but, they would need to register an account in order to be able to post or comment on other's posts.
+
+add more info?
 
 The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
 
+***
 
+#   Table of Contents:
+* [User Experience](#user-experience)
+    * [User Stories](#user-stories)
+    * [Wireframes](#wireframes)
+    * [Design](#design)
+        * [1. Typography](#1-typography)
+        * [2. Color Scheme](#2-color-scheme)
+        * [3. Imagery](#3-imagery)
+* [Database Schema](#database-schema)
+* [Technologies Used](#technologies-used)
+* [Features](#features)
+    * [Feature left to implement](#Feature-left-to-implement)
+* [Testing](#testing)
+* [Deployment](#deployment)
+* [Credits](#credits)
 
-## How to play
-git add
+***
 
+##  User Experience:
 
+-   ### User Stories:
 
-## Features
+    -   ### First Time vistitor/User Goals
+        -   As a first time User, I want to be able to easily navigate the site.
+        -   As a first time User, I want to have the ability to register on the site.
+        -   As a first time User, I want to view content that other's have created.
 
-### Existing Features
+    -   ### Returning registered User Goals 
+        -   As a registered User, I want to have the ability to login to the site with my credentials
+        -   As a registered User, I want to be able to view new content posted by other users
+        -   As a registered User, I want to be able to Create, edit and delete my posts.
+        -   As a registered User, I want to be able to edit any information I entered Prior.
+        -   As a registered User, I want to have the ability to logout of the site. 
 
--   Welcome/home page
+    -   ### Frequent User Goals 
+        -   As a frequent User, I want to easily find any new updates to the site.
+    
+    -   ### Administrator User Goals
+        -   As a Administrator, I want to be able to access the Administration panel.
+        -   As a Administrator, I want to have the ability to manage site contents.
+        -   As a Administrator, i want to be able to give other users administrator abilities to help maintain the site.
 
-    -   User is welcomed with the title of the game and three options.
+[Back to Top](#table-of-contents)
 
-![]()
+-   ### Wireframes
 
--   Options
+    I used Balsamiq to create initial site layout wireframes. Wireframe's for the add/edit post, change password, edit details etc use similar structures.
 
-    -   The first option launches the game.
-    -   The about option briefly explains the premise of the game.
-    -   The credits section has a title with the author's name. 
+    -   ### Home Page
+        <img src="media/images/home-wireframe.png">
 
-![About option](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/about-game.png)
+    -   ### Register Page
+        <img src="media/images/register-page-wireframe.png">
 
-![Credits](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/credits.png)
+    -   ### Login Page
+        <img src="media/images/login-page-wireframe.png">
 
--   Place ships
+    -   ### Add/Edit Post Page
+        <img src="media/images/add-edit-post-wireframe.png">
 
-    -   The first option launches the game and a get set up text is displayed.
-    -   The user then places their ships on their board.
-    -   The text lets the user know what length ship they are on.
-    -   A message then shows if the ship was successfully placed.
+    -   ### Category Page
+        <img src="media/images/category-page-wireframe.png">
 
-![Let's begin](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/begin-game.png)
+    -   ### Mobile Home Page
+        <img src="media/images/home-mobile-wireframe.png">
 
-![Ships placed](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/entering-ships.png)
+    -   ### Mobile Login Page 
+        <img src="media/images/login-page-mobile-wireframe.png">
 
--   Place ships errors
+    -   ### Mobile Add/Edit Page
+        <img src="media/images/add-edit-post-mobile-wireframe.png">
 
-    -   These input validations are in place to make sure the correct input is used.
-    -   The ship order needs to be one after the other either horizontal or vertical.
-    -   The input needs to be a number between 0-99, which is the board's dimensions
-    -   The input needs to be a number
+[Back to Top](#table-of-contents)
 
-![Ship placed errors](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/entering-ship-error.png)
+-   ### Design
 
-![Ship placed errors](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/entering-ship-error%20(2).png)
+    -   ### Typography
+        -   The Roboto font was used for the headings, the Lato font is used for the body elements and both have sans-serif as a backup. These fonts were chosen because they compliment each other well.
 
-![Ship placed errors](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/entering-ship-error%20(3).png)
+    -   ### Color Scheme
+        -   No Particular color scheme was used due to the nature of user's will be adding their own images as posts. Therefore a simple white background is used with a bootstrap dark for the nav-bar and footer to contrast each other.
 
-![Ship placed errors](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/entering-ship-error%20(4).png)
+    -   ### Imagery 
+        -   Majority of images used in the site will come from users post and thir profile images. These images will be stored in a cloudinary account. The other images used for example in the login page are taken from Unsplash.
 
-![Ship placed errors](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/entering-ship-error%20(5).png)
+[Back to Top](#table-of-contents)
 
--   Ships placed
+-   ### Database Schema
+    -   Here are the tables used to plan out the models for the memeblog app.
 
-    -   Once the user ships are placed the board with the locations get printed to the terminal.
-    -   Once all the ships are placed a message gets printed to the terminal to being the guessing.
+    -   ### The Post table 
+        <img src="media/images/post-table.png">
 
-![Player ships](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/player-ships-placed.png)
+    -   ### The Category table
+        <img src="media/images/category-table.png">
 
-![Player ships all placed](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/ships-all-placed.png)
+    -   ### The Comment table
+        <img src="media/images/comment-table.png">
 
--   User guesses
+    -   ### The User Profile table
+        <img src="media/images/user-profile-table.png">
 
-    -   Once the user enters their ship locations and the computer generates their's.
-    -   The user then guesses where the computer's ships are.
-    -   The guesses have input validations to make sure the guesses are according to the board dimensions.
-    -   The input needs to be a number between 0-99.
-    -   The input must not be the same number guesses previously.
-    -   The input needs to be a number.
+[Back to Top](#table-of-contents)
 
-![Guess errors](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/guess-errors.png)
+-   ### Technologies Used
 
--   Miss the ship
+    -   ### Programming Languages, Framworks and Editors
+        -   [HTML5](https://en.wikipedia.org/wiki/HTML5)
+        -   [CSS3](https://en.wikipedia.org/wiki/CSS)
+        -   [JavaScript](https://en.wikipedia.org/wiki/JavaScript) 
+        -   [Python](https://www.python.org/)
+        -   [Django](https://www.djangoproject.com/)
+        -   [Git](https://git-scm.com/)
+        -   [Github](https://github.com/)
+        -   [Heroku](https://www.heroku.com/)
 
-    -   This is a message that displays for the user and computer if the number guessed is a miss.
-    -   It is denoted on the board as an o.
+    -   ### Tools Used:
+        -   [PostgreSQL](https://www.postgresql.org/)
+        -   [Balsamiq](https://balsamiq.com/)
+        -   [Font Awesome Icons](https://fontawesome.com/)
 
-![Player miss](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/player-miss.png)
+[Back to Top](#table-of-contents)
 
-![Computer miss](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/computer-miss.png)
-
--   Hit the ship
-
-    -   This is a message that displays for the user and computer if the number guessed is a hit.
-    -   It is denoted on the board as an x.
-
-![Player hit](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/player-hit.png)
-
-![Computer hit](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/computer-hit.png)
-
--   Destroy the ship
-
-    -   This is a message that displays for the user and computer if the number guessed destroys the ship.
-    -   It is denoted on the board as an X followed by the previous x.
-
-![Player sunk ship](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/player-sunk-ship.png)
-
-![Player sunk ship board](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/player-sunk-ship-board.png)
-
-![Computer sunk ship](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/computer-sunk-ship.png)
-
--   End of game
-
-    -   The first to destroy the others ships first is then declared the winner.
-    -   The message also shows in how many moves/guesses the game was won.
-    -   The computer's guesses on your board is only displaced after the game is over.
-
-![Player wins, computer board with guesses](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/player-win.png)
-
-![Player board with player guesses](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/player-board-with-computer-guesses.png)
-
-### Future Features
-
--   Allow the user to select the board size,number of ships and maximum turns
--   Have the option to show the players board with the computer guesses
--   Have an option to change the computer difficulty e.g. how accurate the computer guesses
-
-## Data Model 
-
-I defined a function that creates a board for both the computer and user. The board is a grid of 0-9 in the x and y axis and is clearly labelled, the user would need to read the y-axis variable followed by the x-axis to get the point on the board to hit. The points on the board and displayed in brackets [ ] to indicate the empty field until a guess is made. 
-
-The check position and check boat functions are there to make sure the inputs by both the computer and player and contained to the board size and that position of how the ships are placed.
-
-Both the computer and user have similar lists that store the data. The guesses made, ships hit, ships missed, ships destroyed and ships placed are some examples. The check shot function checks whether the guesses made have hit, missed or destroyed a ship. The result of the guess made by the player or computer is then printed to the terminal to display the result. 
-
-I decided to only show the computers board with the player guesses, this prevents the user from having to scroll between both boards to see the outcomes. Also adds a sense of suspense that the computer could be on the verge of winning.
-
-## Testing
-
--   I have manually tested this project by doing the following:
-
-    -   Passed the code through a PEP8 linter and confimed there are no problems.
-    -   Given invalid inputs to the entering of ships and guesses made: strings when integers are expected, out of board inputs and same inputs.
-    -   Tested in my local terminal and the code Institute Heroku terminal.
-
-### Bugs
-
-#### Solved bugs
-
--   When writing the add ship function, I noticed an error when a string was typed instead of an integer for the ship placement, this caused the game to crash. I then added a try and except statement with the if and else statement to print the according errors to prevent the game from crashing.
-
-### Remaining Bugs
-
--   No bugs remaining
-
-### Validator Testing
-
--   PEP8
-    -   No errors were returned from PEP8online.com
-
-## Deployment
-
-This project was deployed using Code institute's mock terminal for Heroku.
-
--   Steps for deployment:
-    -   Fork or clone this repository
-    -   Create a new Heroku app
-    -   Set the buildbacks to python and NodeJS in that order
-    -   Link the Heroku app to the repository
-    -   Click on Deploy
-
-## Credits
-
--   Code Institute for the deployment terminal
--   Wikipedia for the details of the battleship game
--   Followed a tutorial by [DR. Codie](https://www.youtube.com/channel/UCFH0iZlolP0HiJOUuDxihqg)
--   Used [Stackoverflow](https://stackoverflow.com/questions/19964603/creating-a-menu-in-python) for the menu
--   [Devdungeon](https://www.devdungeon.com/content/create-ascii-art-text-banners-python) for the pyfiglet font tutorial 
--   Used [amiresponsive](http://ami.responsivedesign.is/#)
--   My mentor for giving constant feedback throughout the sessions.
+-   ### Features 
