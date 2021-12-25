@@ -2,7 +2,7 @@
 
 ![Screen sizes](image here)
 
-<img src="media/images/home.png">
+<img src="media/images/Home.png">
 
 The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
 
