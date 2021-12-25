@@ -1,108 +1,181 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<h1 align="left">Memebase</h1>
 
-Welcome dhowai,
+![Screen sizes](image here)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+<img src="media/images/home.PNG">
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
 
-## Gitpod Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
 
-`python3 -m http.server`
+## How to play
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 
-A blue button should appear to click: _Make Public_,
+## Features
 
-Another blue button should appear to click: _Open Browser_.
+### Existing Features
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+-   Welcome/home page
 
-To log into the Heroku toolbelt CLI:
+    -   User is welcomed with the title of the game and three options.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+![]()
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+-   Options
 
-------
+    -   The first option launches the game.
+    -   The about option briefly explains the premise of the game.
+    -   The credits section has a title with the author's name. 
 
-## Release History
+![About option](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/about-game.png)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+![Credits](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/credits.png)
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+-   Place ships
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+    -   The first option launches the game and a get set up text is displayed.
+    -   The user then places their ships on their board.
+    -   The text lets the user know what length ship they are on.
+    -   A message then shows if the ship was successfully placed.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+![Let's begin](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/begin-game.png)
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+![Ships placed](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/entering-ships.png)
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+-   Place ships errors
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+    -   These input validations are in place to make sure the correct input is used.
+    -   The ship order needs to be one after the other either horizontal or vertical.
+    -   The input needs to be a number between 0-99, which is the board's dimensions
+    -   The input needs to be a number
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+![Ship placed errors](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/entering-ship-error.png)
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+![Ship placed errors](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/entering-ship-error%20(2).png)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+![Ship placed errors](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/entering-ship-error%20(3).png)
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+![Ship placed errors](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/entering-ship-error%20(4).png)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+![Ship placed errors](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/entering-ship-error%20(5).png)
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+-   Ships placed
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+    -   Once the user ships are placed the board with the locations get printed to the terminal.
+    -   Once all the ships are placed a message gets printed to the terminal to being the guessing.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+![Player ships](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/player-ships-placed.png)
 
-------
+![Player ships all placed](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/ships-all-placed.png)
 
-## FAQ about the uptime script
+-   User guesses
 
-**Why have you added this script?**
+    -   Once the user enters their ship locations and the computer generates their's.
+    -   The user then guesses where the computer's ships are.
+    -   The guesses have input validations to make sure the guesses are according to the board dimensions.
+    -   The input needs to be a number between 0-99.
+    -   The input must not be the same number guesses previously.
+    -   The input needs to be a number.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+![Guess errors](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/guess-errors.png)
 
-**How will this affect me?**
+-   Miss the ship
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+    -   This is a message that displays for the user and computer if the number guessed is a miss.
+    -   It is denoted on the board as an o.
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+![Player miss](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/player-miss.png)
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+![Computer miss](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/computer-miss.png)
 
-**So….?**
+-   Hit the ship
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+    -   This is a message that displays for the user and computer if the number guessed is a hit.
+    -   It is denoted on the board as an x.
 
-**Can I opt out?**
+![Player hit](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/player-hit.png)
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+![Computer hit](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/computer-hit.png)
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+-   Destroy the ship
 
-**Anything more?**
+    -   This is a message that displays for the user and computer if the number guessed destroys the ship.
+    -   It is denoted on the board as an X followed by the previous x.
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+![Player sunk ship](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/player-sunk-ship.png)
 
----
+![Player sunk ship board](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/player-sunk-ship-board.png)
 
-Happy coding!
+![Computer sunk ship](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/computer-sunk-ship.png)
+
+-   End of game
+
+    -   The first to destroy the others ships first is then declared the winner.
+    -   The message also shows in how many moves/guesses the game was won.
+    -   The computer's guesses on your board is only displaced after the game is over.
+
+![Player wins, computer board with guesses](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/player-win.png)
+
+![Player board with player guesses](https://github.com/dhowai/portfolio-3-battleship/blob/main/images/player-board-with-computer-guesses.png)
+
+### Future Features
+
+-   Allow the user to select the board size,number of ships and maximum turns
+-   Have the option to show the players board with the computer guesses
+-   Have an option to change the computer difficulty e.g. how accurate the computer guesses
+
+## Data Model 
+
+I defined a function that creates a board for both the computer and user. The board is a grid of 0-9 in the x and y axis and is clearly labelled, the user would need to read the y-axis variable followed by the x-axis to get the point on the board to hit. The points on the board and displayed in brackets [ ] to indicate the empty field until a guess is made. 
+
+The check position and check boat functions are there to make sure the inputs by both the computer and player and contained to the board size and that position of how the ships are placed.
+
+Both the computer and user have similar lists that store the data. The guesses made, ships hit, ships missed, ships destroyed and ships placed are some examples. The check shot function checks whether the guesses made have hit, missed or destroyed a ship. The result of the guess made by the player or computer is then printed to the terminal to display the result. 
+
+I decided to only show the computers board with the player guesses, this prevents the user from having to scroll between both boards to see the outcomes. Also adds a sense of suspense that the computer could be on the verge of winning.
+
+## Testing
+
+-   I have manually tested this project by doing the following:
+
+    -   Passed the code through a PEP8 linter and confimed there are no problems.
+    -   Given invalid inputs to the entering of ships and guesses made: strings when integers are expected, out of board inputs and same inputs.
+    -   Tested in my local terminal and the code Institute Heroku terminal.
+
+### Bugs
+
+#### Solved bugs
+
+-   When writing the add ship function, I noticed an error when a string was typed instead of an integer for the ship placement, this caused the game to crash. I then added a try and except statement with the if and else statement to print the according errors to prevent the game from crashing.
+
+### Remaining Bugs
+
+-   No bugs remaining
+
+### Validator Testing
+
+-   PEP8
+    -   No errors were returned from PEP8online.com
+
+## Deployment
+
+This project was deployed using Code institute's mock terminal for Heroku.
+
+-   Steps for deployment:
+    -   Fork or clone this repository
+    -   Create a new Heroku app
+    -   Set the buildbacks to python and NodeJS in that order
+    -   Link the Heroku app to the repository
+    -   Click on Deploy
+
+## Credits
+
+-   Code Institute for the deployment terminal
+-   Wikipedia for the details of the battleship game
+-   Followed a tutorial by [DR. Codie](https://www.youtube.com/channel/UCFH0iZlolP0HiJOUuDxihqg)
+-   Used [Stackoverflow](https://stackoverflow.com/questions/19964603/creating-a-menu-in-python) for the menu
+-   [Devdungeon](https://www.devdungeon.com/content/create-ascii-art-text-banners-python) for the pyfiglet font tutorial 
+-   Used [amiresponsive](http://ami.responsivedesign.is/#)
+-   My mentor for giving constant feedback throughout the sessions.
