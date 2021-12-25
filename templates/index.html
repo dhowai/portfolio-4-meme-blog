@@ -36,16 +36,6 @@
                     </div>
                     <div class="small text-muted">Dec. 24, 2021, 10:24 p.m.</div>
                     <img class="card-img-top" alt="post image" src="https://res.cloudinary.com/demon13/image/upload/v1640384688/dmte7r1tp0ze0ym6anpr.jpg">
-                    <small>
-                        {% if user.is_authenticated %}
-                        {% if user.id == post.author.id %}
-                        <a href="{% url 'edit_post' post.pk %}"> Edit |</a>
-                        <a href="{% url 'delete_post' post.pk %}"> Delete</a>
-                        {% endif %}
-                        {% endif %}
-                    </small>
-                    <hr>
-                    <div class="small text-muted"><i class="far fa-thumbs-up"></i>0</div>
                 </div>
             </div>
             <hr>
