@@ -27,6 +27,10 @@ The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
     * [Features left to implement](#features-left-to-implement)
 * [Templates](#templates)
 * [Testing](#testing)
+    * [User Stories Testing](#user-stories-testing)
+    * [Code Validation](#code-validation)
+    * [Maual Testing](#manual-testing)
+    * [Automated Testing](#automated-testing)
 * [Deployment](#deployment)
 * [Credits](#credits)
 
@@ -262,5 +266,120 @@ The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
     -   Sort posts by their popularity e.g. likes, comments on their own page.
     -   Have a nested comment section so users can directly reply to specific messages.
     -   Account registration with social accounts.
+    -   Have a way for users to report offensive content.
+    -   Implement a contact us section for users to email site owners/admins.
+    -   A search ability to find content easily. 
+
 
 # Templates
+
+-   Two applications were used to create this project:
+    -   One is called memebers, it handles all the aspects that have have to do with the user e.g. registration, login etc
+    -   The second is called memeblog, this handles the main part of the blog. e.g. posting, commenting etc
+
+-   The template folder in this project has two folders:
+    -   One called registration which holds all the HTML templates for the memebers application.
+    -   The other called blog hold all the HTML templates for the memeblog/blog application.
+-   All templates on the site extends from the base.html which is in the main folder from templates.
+-   This base.html has the navigation and footer elements which can be founds on all site pages.
+-   This is the section in the base.html where the content from the other pages are place into
+    ``` 
+    <main>
+        {% block content %}
+        <!--Content goes here-->
+        {% endblock content %}
+    </main>
+    ```
+
+[Back to Top](#table-of-contents)
+
+# Testing
+
+## User Stories Testing
+
+-   First Time vistitor/User Goals
+
+    -   As a first time User, I want to be able to easily navigate the site.
+    
+        -   When the visitor first enters the site they are greated with a welcome message.
+        -   The homepage has a featured post which gives the user a sense of what the site is about.
+        -   The user can browse any category through the navigation bar or from the posts themselves.
+        -   The new user can view all the content and would only need to register or login to interact with the content.
+
+    -   As a first time User, I want to have the ability to register on the site.
+        
+        -   There is a side widget next to the featured post that explains briefly what the site is about and how a user can interact with the content with the relevant links.
+        -   There is the register option on the navigation bar.
+        -   When a user clicks on a post they can see text explaining that they need to be logged in to interact e.g. liking and commenting on a post. These texts have links to the corresponding pages.
+
+    -   As a first time User, I want to view content that other's have created.
+
+        -   The new user can view any post, be it on the homepage or the category page.
+
+-   Returning registered User Goals 
+
+    -   As a registered User, I want to have the ability to login to the site with my credentials
+
+        -   The user can do so from the navigation bar.
+        -   From the homepage side widget called information.
+        -   Or from any post, which requires them to login to interact with the content.
+
+    -   As a registered User, I want to be able to view new content posted by other users
+
+        -   When a user creates a post it gets posted to the home page and all the posts are sorted by date/time posted.
+        -   New content would is easy to find this way.
+
+    -   As a registered User, I want to be able to Create, edit and delete my posts.
+
+        -   A user can find their posts by category or from the home page.
+        -   The add post is at the top of the navigation bar so the user can easily make posts when logged in.
+        -   If they are the author, throught the conditioning they will be able to edit, delete the posts they made.
+
+    -   As a registered User, I want to be able to edit any information I entered Prior.
+
+        -   The user has options on the navigation bar under their username.
+        -   Here they can edit various previously entered information.
+        
+    -   As a registered User, I want to have the ability to logout of the site. 
+
+        -   From the navigation bar, the username dropdown gives the user the option to logout.
+
+-   Frequent User Goals
+
+    -   As a frequent User, I want to easily find any new updates to the site.
+
+        -   Any new posts made will always appear first on the homepage and their respected category pages.
+        -   Any new updates to the site will be posted in the information side widget on the home page.
+
+[Back to Top](#table-of-contents)
+
+## Code Validation 
+
+-   HTML
+
+    -   Each page of the site had their source page looked up and ran the HTML through the [W3C Validation](https://validator.w3.org/).
+    -   The validator showed an issue on the edit user details page. This page uses django's UserChangeForm and even though I did not state in the EditUserDetailsForm to use the password field, it still appears.
+        <img src="media/images/edit-user-details-form-html-error.png">
+        <img src="media/images/edit-user-details-form-html-error-code.png">
+    -   This is the only error found, (continue explaination?)
+
+-   CSS
+
+    -   No errors were returned when passing through the official [(jigsaw) validatior](https://jigsaw.w3.org/css-validator)
+
+        <img src="media/images/w3c-css-validator-results.png">
+
+-   JavaScript
+
+    -   [JSHint](https://jshint.com/) was used to check for any major errors in the scripts. The only errors found were for the 'let' due to being only available in ES6.
+
+-   Python Code
+
+    -   No errors were returned when testing python code with [PEP8](http://pep8online.com/) except for some instances where imports were asking for docstrings. 
+
+[Back to Top](#table-of-contents)
+
+## Manual Testing
+
+
+## Automated Testing 
