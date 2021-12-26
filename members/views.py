@@ -31,7 +31,7 @@ class EditUserDetailsView(SuccessMessageMixin, generic.UpdateView):
     update the user is taken back to the home page and a success
     message gets displayed.
     """
-    form_class =EditUserDetailsForm
+    form_class = EditUserDetailsForm
     template_name = 'registration/edit_user_details.html'
     success_url = reverse_lazy('home')
     success_message = "User Settings Updated"
