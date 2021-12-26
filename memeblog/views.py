@@ -18,7 +18,7 @@ class HomeView(ListView):
     date posted and paginate by 6.
     """
     model = Post
-    template_name = 'index.html'
+    template_name = 'blog/index.html'
     queryset = Post.objects.order_by('-posted_on')
     paginate_by = 6
 
@@ -31,7 +31,7 @@ class PostDetailView(DetailView):
     with the comment form.
     """
     model = Post
-    template_name = 'post_detail.html'
+    template_name = 'blog/post_detail.html'
 
     def get_context_data(self, *args, **kwargs):
         context = super(PostDetailView, self).get_context_data(*args, **kwargs)
@@ -58,7 +58,7 @@ class AddPostView(SuccessMessageMixin, CreateView):
     """
     model = Post
     form_class = AddPostForm
-    template_name = 'add_post.html'
+    template_name = 'blog/add_post.html'
     success_message = """Your Post Called
         %(title)s Has Been Posted in %(category)s"""
 
@@ -74,7 +74,7 @@ class EditPostView(SuccessMessageMixin, UpdateView):
     """
     model = Post
     form_class = EditPostForm
-    template_name = 'edit_post.html'
+    template_name = 'blog/edit_post.html'
     success_message = """Your Post Called %(title)s
         Has Been Updated in %(category)s"""
 
@@ -86,7 +86,7 @@ class DeletePostView(SuccessMessageMixin, DeleteView):
     displays it on the delete_post.html template.
     """
     model = Post
-    template_name = 'delete_post.html'
+    template_name = 'blog/delete_post.html'
     success_url = reverse_lazy('home')
     success_message = "Your Post Called %(title)s Has Been Deleted"
 
@@ -112,7 +112,7 @@ class CategoryView(ListView):
     A view that displays all the posts with the same category
     on their own page.
     """
-    template_name = 'category_page.html'
+    template_name = 'blog/category_page.html'
     context_object_name = 'catlist'
 
     def get_queryset(self):
