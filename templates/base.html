@@ -61,7 +61,7 @@
                         <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="{% url 'profile_page' user.userprofile.id %}"> <i class="fas fa-id-badge"></i> Profile</a>
                             <a class="dropdown-item" href="{% url 'edit_profile_page' user.userprofile.id %}"> <i class="fas fa-edit"></i> Edit Profile</a>
-                            <a class="dropdown-item" href="{% url 'edit_user_settings' %}"> <i class="fas fa-edit"></i>Settings</a>
+                            <a class="dropdown-item" href="{% url 'edit_user_details' %}"> <i class="fas fa-edit"></i>Edit Details</a>
                             <a class="dropdown-item" href="{% url 'change_password' %}"> <i class="fas fa-key"></i> Change Password</a>
                             <hr class="dropdown-divider">
                             <a class="dropdown-item" href="{% url 'logout' %}"> <i class="fas fa-sign-out-alt"></i> Logout</a>
@@ -78,7 +78,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
                             
-                            <a class="dropdown-item" href="{% url 'edit_user_settings' %}"> <i class="fas fa-edit"></i>Settings</a>
+                            <a class="dropdown-item" href="{% url 'edit_user_details' %}"> <i class="fas fa-edit"></i>Edit Details</a>
                             <a class="dropdown-item" href="{% url 'change_password' %}"> <i class="fas fa-key"></i> Change Password</a>
                             <hr class="dropdown-divider">
                             <a class="dropdown-item" href="{% url 'logout' %}"> <i class="fas fa-sign-out-alt"></i> Logout</a>
@@ -113,11 +113,15 @@
             </div>
             <div class="col-sm-6 col-md-4 footer-about">
                 <h4>About the author</h4>
-                <p>Looking to progress and learn as a new Developer</p>
+                <p>Looking to learn and progress as a new Developer</p>
                 <div class="social-links social-icons">
                     <a href="https://www.linkedin.com/in/daryl-howai-934444211/" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/dhowai" target="_blank"><i class="fab fa-github-square"></i></a>
                 </div>
+            </div>
+            <div class="col-sm-6 col-md-4 py-3 footer-about">
+                <h4>About the Site</h4>
+                <p>This is a social site for users to post and comment on interesting meme content</p>
             </div>
         </div>
     </footer>
