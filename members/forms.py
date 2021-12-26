@@ -18,6 +18,10 @@ class RegisterForm(UserCreationForm):
         attrs={'class': 'form-control'}))
 
     class Meta:
+        """
+        This uses the User model and allows certain
+        form fields to be manipulated and styled.
+        """
         model = User
         fields = (
             'username', 'first_name',
@@ -46,6 +50,10 @@ class EditUserDetailsForm(UserChangeForm):
         attrs={'class': 'form-control'}))
 
     class Meta:
+        """
+        This uses the User model and allows certain
+        form fields to be manipulated and styled.
+        """
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', )
 
@@ -66,6 +74,10 @@ class PasswordChangingForm(PasswordChangeForm):
             attrs={'class': 'form-control', 'type': 'password'}))
 
     class Meta:
+        """
+        This uses the User model and allows certain
+        form fields to be manipulated and styled.
+        """
         model = User
         fields = ('old_password', 'new_password1', 'new_password2', )
 
@@ -76,6 +88,10 @@ class EditProfilePageForm(forms.ModelForm):
     information.
     """
     class Meta:
+        """
+        This uses the UserProfile model and allows certain
+        form fields to be manipulated and styled.
+        """
         model = UserProfile
         fields = ('profile_pic', 'bio')
 
@@ -91,6 +107,10 @@ class ProfilePageForm(forms.ModelForm):
     page.
     """
     class Meta:
+        """
+        This uses the UserProfile model and allows certain
+        form fields to be manipulated and styled.
+        """
         model = UserProfile
         fields = ('profile_pic', 'bio')
 

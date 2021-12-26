@@ -20,6 +20,10 @@ class AddPostForm(forms.ModelForm):
     and like all the other fields, it is required.
     """
     class Meta:
+        """
+        This uses the Post model and allows certain
+        form fields to be manipulated and styled.
+        """
         model = Post
         fields = ('title', 'category', 'author', 'content_image')
 
@@ -43,6 +47,10 @@ class EditPostForm(forms.ModelForm):
     allows the author to make edit this information.
     """
     class Meta:
+        """
+        This uses the Post model and allows certain
+        form fields to be manipulated and styled.
+        """
         model = Post
         fields = ('title', 'category', 'content_image')
 
@@ -60,6 +68,10 @@ class CommentForm(forms.ModelForm):
     on a post's page.
     """
     class Meta:
+        """
+        This uses the Comment model and allows certain
+        form fields to be manipulated and styled.
+        """
         model = Comment
         fields = ('body',)
         labels = {
