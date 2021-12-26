@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from memeblog.models import UserProfile
 from .forms import (
-    RegisterForm, EditUserSettingsForm,
+    RegisterForm, EditUserDetailsForm,
     PasswordChangingForm, ProfilePageForm, EditProfilePageForm)
 
 
@@ -23,7 +23,7 @@ class UserRegisterView(SuccessMessageMixin, generic.CreateView):
     success_message = "%(username)s Registered Succesfully"
 
 
-class UserEditSettingsView(SuccessMessageMixin, generic.UpdateView):
+class EditUserDetailsView(SuccessMessageMixin, generic.UpdateView):
     """
     User can edit their information inputed initially in the register
     form. These details get pulled from the database and auto fill
@@ -31,8 +31,8 @@ class UserEditSettingsView(SuccessMessageMixin, generic.UpdateView):
     update the user is taken back to the home page and a success
     message gets displayed.
     """
-    form_class = EditUserSettingsForm
-    template_name = 'registration/edit_user_settings.html'
+    form_class =EditUserDetailsForm
+    template_name = 'registration/edit_user_details.html'
     success_url = reverse_lazy('home')
     success_message = "User Settings Updated"
 

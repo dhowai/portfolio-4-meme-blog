@@ -1,13 +1,13 @@
 from django.urls import path
 from .views import (
-    UserRegisterView, UserEditSettingsView,
+    UserRegisterView, EditUserDetailsView,
     PasswordsChangeView, ProfilePageView,
     EditProfilePageView, CreateProfilePageView)
 
 urlpatterns = [
     path('register/', UserRegisterView.as_view(), name='register'),
-    path('edit_user_settings/', UserEditSettingsView.as_view(
-        ), name='edit_user_settings'),
+    path('edit_user_details/', EditUserDetailsView.as_view(
+        ), name='edit_user_details'),
     path('password/', PasswordsChangeView.as_view(
         template_name='registration/change_password.html'
         ), name="change_password"),

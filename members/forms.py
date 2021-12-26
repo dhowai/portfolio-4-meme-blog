@@ -31,7 +31,7 @@ class RegisterForm(UserCreationForm):
         self.fields['password2'].widget.attrs['class'] = 'form-control'
 
 
-class EditUserSettingsForm(UserChangeForm):
+class EditUserDetailsForm(UserChangeForm):
     """
     This form handles the edit user setting extending from
     the UserChangeForm.
