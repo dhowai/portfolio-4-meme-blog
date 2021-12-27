@@ -17,6 +17,8 @@ a {
   text-decoration: none;
 }
 
+/* Comment Section */
+
 .blog-comment::before,
 .blog-comment::after,
 .blog-comment-form::before,
@@ -98,6 +100,8 @@ a {
   font-weight: 800;
 }
 
+/* navigation */
+
 .navbar-brand {
   padding: 11px 20px;
 }
@@ -142,10 +146,12 @@ a {
   }
 }
 
+/* Images */
+
 .hero-image {
   background: url("https://res.cloudinary.com/demon13/image/upload/v1639496166/destiny_2_beyond_light_2020_game_europa-wallpaper-2560x1440_zo1q8i.jpg") 50% 0 no-repeat fixed;
   color: white;
-  height: 650px;
+  height: 80vh;
   padding: 100px 0 0 0; 
 }
 
@@ -173,6 +179,8 @@ a {
   min-height: 80vh;
 }
 
+/* Footer */
+
 footer {
   background-color: #292c2f;
   width: 100%;
@@ -184,7 +192,6 @@ footer {
 
 .footer-navigation h3 {
   margin: 0;
-  font: normal 36px Cookie, cursive;
   margin-bottom: 20px;
   color: #fff
 }
