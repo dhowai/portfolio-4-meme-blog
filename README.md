@@ -453,7 +453,7 @@ This fullstack application was deployed to GitHub pages, using Gitpod as a devel
 -   Used snippets from bootdey.com for [comments](https://www.bootdey.com/snippets/view/blog-comments#preview) and [User information](https://www.bootdey.com/snippets/view/Table-user-information#preview)
 -   Used snippet form bboostrap for a [footer](https://bbbootstrap.com/snippets/bootstrap-fixed-footer-template-social-icons-59664838)
 -   Unsplash images by Fakurian Design [first](https://unsplash.com/photos/HmgeiuZE0Iw), [second](https://unsplash.com/photos/nNLQGgWZD7Q)
--   [Wallpaperswide](http://wallpaperswide.com/destiny_2_beyond_light_2020_game_europa-wallpapers.html) for homepage image
+-   [Lukas Mayer](https://www.pexels.com/photo/black-computer-keyboard-785429/) for homepage image
 
 # Acknowledgements
 
