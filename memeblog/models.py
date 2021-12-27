@@ -11,7 +11,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     category = models.TextField()
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="blog_posts")
+        User, on_delete=models.CASCADE, null=True, related_name="blog_posts")
     posted_on = models.DateTimeField(auto_now=True)
     content_image = CloudinaryField('image')
     likes = models.ManyToManyField(User, related_name='post_likes', blank=True)
@@ -55,7 +55,7 @@ class Comment(models.Model):
     Model that handles the comment section.
     """
     post = models.ForeignKey(
-        Post, on_delete=models.CASCADE, related_name='comments')
+        Post, on_delete=models.CASCADE, null=True, related_name='comments')
     name = models.CharField(max_length=100)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
