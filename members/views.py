@@ -34,7 +34,7 @@ class EditUserDetailsView(SuccessMessageMixin, generic.UpdateView):
     form_class = EditUserDetailsForm
     template_name = 'registration/edit_user_details.html'
     success_url = reverse_lazy('home')
-    success_message = "User Settings Updated"
+    success_message = "User Details Updated"
 
     def get_object(self):
         return self.request.user
