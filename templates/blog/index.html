@@ -27,15 +27,15 @@
             <h2>Featured Post</h2>
             <div class="card mb-4">
                 <div class="card-body">
-                    <a href="/post/27">
-                        <h3 class="card-title">Database won&#x27;t migrate. This is fine...</h3>
+                    <a href="/post/1">
+                        <h3 class="card-title">Database refused to cooperate...</h3>
                     </a>
                     <div class="small text-muted">Posted By:
-                        <a href="/members/1/profile/">admin</a> in
-                        <a class="category-link" href="/category/Meme/">Meme</a>
+                        <a href="/members/1/profile/">Demondayz</a> in
+                        <a class="category-link" href="/category/meme/">meme</a>
                     </div>
-                    <div class="small text-muted">Dec. 24, 2021, 10:24 p.m.</div>
-                    <img class="card-img-top" alt="post image" src="https://res.cloudinary.com/demon13/image/upload/v1640384688/dmte7r1tp0ze0ym6anpr.jpg">
+                    <div class="small text-muted">Dec. 27, 2021, 1:44 a.m.</div>
+                    <img class="card-img-top" alt="post image" src="https://res.cloudinary.com/demon13/image/upload/v1640569489/yszmusxqtkbifajy1drv.jpg">
                 </div>
             </div>
             <hr>
@@ -75,11 +75,18 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <ul class="list-unstyled mb-0">
+                                {% if user.is_authenticated %}
+                                <li>Welcome back Traveller,</li>
+                                <li>Feel free to browse, post or comment on the memebase</li>
+                                <li>No new updates to report, yet</li>
+                                <li>Enjoy your stay</li>
+                                {% else %}
                                 <li>Hello Traveller, feel free to look around the memebase</li>
                                 <li>If you want to take part in posting, liking or commenting</li>
                                 <li>Please <a href="{% url 'register' %}"> Register</a> an account with us</li>
                                 <li>Or if you are a returning memeber <a  href="{% url 'login' %}"> Login</a></li>
-                                <li>Enjoy the memes!</li>
+                                <li>Enjoy the Memes</li>
+                                {% endif %}
                             </ul>
                         </div>
                     </div>
