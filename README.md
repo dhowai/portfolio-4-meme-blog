@@ -136,6 +136,7 @@ The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
     -   [Heroku](https://www.heroku.com/)
 
 -   ### Tools Used:
+    -   [Bootstrap](https://getbootstrap.com/)
     -   [PostgreSQL](https://www.postgresql.org/)
     -   [Balsamiq](https://balsamiq.com/)
     -   [Font Awesome Icons](https://fontawesome.com/)
@@ -375,11 +376,31 @@ The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
 
 -   Python Code
 
-    -   No errors were returned when testing python code with [PEP8](http://pep8online.com/) except for some instances where imports were asking for docstrings. 
+    -   No errors were returned when testing python code with [PEP8](http://pep8online.com/) except for some instances where imports were asking for docstrings in github.
+
+        <img src="media/images/pep8-test-example.png">
 
 [Back to Top](#table-of-contents)
 
 ## Manual Testing
 
+-   Google Chrome developer tools was used throughout the development process to test the layout of the different pages.
+-   Bootstrap made this easier to test and fix by using their documentation page to buid the sites elements.
+-   Github issues and projects was used to track down the features that I wanted the site to have. Each feature was given their own label to dertermine how important it was to develop the site as planned. The priority was to have the core functionality of the site up and running that was labled with Must Have. Should Have lables are features to furthur improve the user experience, Could Have lables represent that features that weren't a must but would be beneficial to have and lastly the Wont Have are the features the site will not have at launch, but could have in later updates.
+-   All functionality of the site was tested at the different stages of delevelopment to test whether the user was redirected to right page after doing something. The URL naming convention has the same name, path as the view to keep it intuitive to the action.
+-   Majority of the forms were extended from the various django forms to style them with bootstrap. Each has their own error message system which ensures only valid information is accepted and a success message gets displayed on successful input.
+-   The site also has User authenciation to keep track of which user can post, edit and delete depending if they are they author of a post.
 
 ## Automated Testing 
+
+-   Unit tests was used from the python standard library module to test the models, forms and views for the applications. 
+-   Coverage was installed to find out how much of the code was tested. Using ```pip3 install coverage``` and ```coverage --source=app manage.py test``` to generate the html file.
+-   Majority of the code uses django's class based views and forms which required no testing.
+
+-   Coverage results for the members application
+
+    <img src="media/images/coverage-report-members.png">
+
+-   Coverage results for the memeblog application
+
+    <img src="media/images/coverage-report-memeblog.png">
