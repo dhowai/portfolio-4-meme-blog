@@ -1,6 +1,6 @@
 <h1 align="left">Memebase</h1>
 
-![Screen sizes](image here)
+<img src="media/images/responsive-image.png">
 
 This project was focused on creating a Full-Stack developed site using the Django Framework.
 
