@@ -2,11 +2,9 @@
 
 ![Screen sizes](image here)
 
-This project was focused on creating a Full-Stack developed site using the Django Framework with the use of a database. 
+This project was focused on creating a Full-Stack developed site using the Django Framework.
 
-Memebase is a reddit style blog for memes, the users can come here to share/view memes in various categories. A user can visit to purely view the content, but, they would need to register an account in order to be able to post or comment on other's posts.
-
-add more info?
+Memebase is a reddit style blog where content is curated by the users who can view, like and comment on the content. The site is maintained by the administrators to help maintain the integrity of the site. 
 
 The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
 
@@ -17,9 +15,9 @@ The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
     * [User Stories](#user-stories)
     * [Wireframes](#wireframes)
     * [Design](#design)
-        * [1. Typography](#1-typography)
-        * [2. Color Scheme](#2-color-scheme)
-        * [3. Imagery](#3-imagery)
+        * [1. Typography](#typography)
+        * [2. Color Scheme](#color-scheme)
+        * [3. Imagery](#imagery)
 * [Database Schema](#database-schema)
 * [Technologies Used](#technologies-used)
 * [Features](#features)
@@ -31,8 +29,10 @@ The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
     * [Code Validation](#code-validation)
     * [Maual Testing](#manual-testing)
     * [Automated Testing](#automated-testing)
+* [Bugs](#bugs)
 * [Deployment](#deployment)
 * [Credits](#credits)
+* [Acknowlegments](#credits)
 
 ***
 
@@ -40,7 +40,7 @@ The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
 
 -   ## User Stories:
 
-    -   ### First Time vistitor/User Goals
+    -   ### First Time visitor/User Goals
         -   As a first time User, I want to be able to easily navigate the site.
         -   As a first time User, I want to have the ability to register on the site.
         -   As a first time User, I want to view content that other's have created.
@@ -56,9 +56,9 @@ The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
         -   As a frequent User, I want to easily find any new updates to the site.
     
     -   ### Administrator User Goals
-        -   As a Administrator, I want to be able to access the Administration panel.
-        -   As a Administrator, I want to have the ability to manage site contents.
-        -   As a Administrator, i want to be able to give other users administrator abilities to help maintain the site.
+        -   As an Administrator, I want to be able to access the Administration panel.
+        -   As an Administrator, I want to have the ability to manage site contents.
+        -   As an Administrator, i want to be able to give other users administrator abilities to help maintain the site.
 
 [Back to Top](#table-of-contents)
 
@@ -101,7 +101,7 @@ The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
         -   No Particular color scheme was used due to the nature of user's will be adding their own images as posts. Therefore a simple white background is used with a bootstrap dark for the nav-bar and footer to contrast each other.
 
     -   ### Imagery 
-        -   Majority of images used in the site will come from users post and thir profile images. These images will be stored in a cloudinary account. The other images used for example in the login page are taken from Unsplash.
+        -   The majority of images used in the site will come from users post and their profile images. These images will be stored in a cloudinary account. The other images used for example in the login page are taken from Unsplash.
 
 [Back to Top](#table-of-contents)
 
@@ -136,6 +136,7 @@ The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
     -   [Heroku](https://www.heroku.com/)
 
 -   ### Tools Used:
+    -   [Cloudinary](https://cloudinary.com/)
     -   [Bootstrap](https://getbootstrap.com/)
     -   [PostgreSQL](https://www.postgresql.org/)
     -   [Balsamiq](https://balsamiq.com/)
@@ -149,31 +150,32 @@ The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
 
 -   Index/Home page
     -   When a user first enters the site they are greated with a welcome title, a featured post and a information side widget explaining the site.
-    -   As the user srolls down they can see the other posts, they are organized by date posted. The new posts are displayed first.
-    -   The page is paginated by 6 posts, so after every 6 posts a new page is created for the rest.
+    -   As the user scrolls down, they can see the other posts, they are organized by date posted. The new posts are displayed first.
+    -   The page is paginated by 6 posts, so after every 6 posts a new page is created.
 
 <img src="media/images/home.png">
 
--   Naviagtion Bar
-    -   There are different naviagtion bar elements that get displayed depending on whether the user is logged in or not.
+-   Navigation Bar
+    -   There are different navigation bar elements that get displayed depending on whether the user is logged in or not.
     -   When first visiting the site the user can view the posts displayed anywhere on the site, browse the different category pages, register an account or log in.
+    -   It's important to note that the category list can only be updated in the admin section of the site.
         <img src="media/images/nav-bar-not-logged-in.png">
-    -   When the user is logged in they can do they same as a new user and have the option to make posts and has access to edit various data. 
+    -   When the user is logged in they can do they same as a new user, make posts and has access to edit various data. 
         <img src="media/images/nav-bar-logged-in.png">
         <img src="media/images/nav-bar-user-logged-in-menu.png">
-    -   When a new user creates an account and logs in for the first time the navigation bar is slightly different. The user can not make posts until a user profile is created which is displayed. Note that the user does not have to fill this form, but it does need to be submitted in order to make posts.
+    -   When a new user creates an account and logins for the first time the navigation bar is slightly different. The user cannot make posts until a user profile is created. Note that the user does not have to fill this form, but it does need to be submitted in order to make posts.
         <img src="media/images/new-user-home-page.png">
         <img src="media/images/new-user-create-profile-page.png">
     -   Once that's been submitted the user is redirected to the home page with a success message and the navbar is updated to reflect it.
         <img src="media/images/new-user-home-page-after-profile-created.png">
 
 -   The footer
-    -   Here the user can find out more about the developer with links to their social accounts. It also has a short description about the site
+    -   Here the user can find out more about the developer with links to their social accounts. It also has a short description about the site.
         <img src="media/images/footer.png">
 
 -   The register/login page
-    -   The register/login pages uses the django authentication system. The forms used are extended from the respected django forms to style using bootstrap. 
-    -   All the errors in he filling of the register form is handled by the django authentication system. Once all the details are filled correctly they are then redirected to the login page with a success message.
+    -   The registration/login pages use the Django authentication system. The forms used are extended from the respected Django forms to style using bootstrap. 
+    -   The form validation of the register form are handled by the Django authentication system. Once all the details are filled correctly, they are then redirected to the login page with a success message.
         <img src="media/images/register-page.png">
 
         <img src="media/images/login-page.png">
@@ -182,8 +184,8 @@ The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
         <img src="media/images/login-page-error.png">
     -   On successful login the user is then taken to the homepage.
 
--   Logged in dropdown options
-    -   When a user has logged in they are given access to options under their username on the navigation bar.
+-   Logged in drop-down options
+    -   When a user has logged in they are given access to options under their username in the navigation bar.
     -   When any of these options are updated a success message is displayed accordingly.
 
     -   Profile
@@ -199,13 +201,13 @@ The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
             <img src="media/images/edit-profile-page.png">
 
     -   Edit User Details
-        -   Here the user can edit their user details. It uses the django UserChangeForm and extends from that to style using bootstrap.
+        -   Here the user can edit their user details. It uses the Django UserChangeForm and extends from that to style using bootstrap.
         -   There's also a link to change their password which redirections them to the next option.
 
             <img src="media/images/edit-details-page.png">
 
     -   Change password 
-        -   Here a user can change their password. It uses the django PasswordChangeForm and extends from that to style using bootstrap.
+        -   Here a user can change their password. It uses the Django PasswordChangeForm and extends from that to style using bootstrap.
 
             <img src="media/images/change-password-page.png">     
         -   The last option is for the user to logout.
@@ -244,12 +246,13 @@ The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
 
 -   The category Page
     -   The posts are categorized by their category given when the post initially gets created.
-    -   Every category has their own page, they can be accessed by with the category dropdown on the navigation bar or the link to the category on the post.
-    -   It's similar to the homepage layout, only difference is that the posts are slightly larger. 
+    -   Every category has their own page, they can be accessed by with the category drop-down on the navigation bar or the link to the category on the post.
+    -   It's similar to the homepage layout, only difference is that the posts are slightly larger.
+    -   Only administrators can add/edit categories on the site. 
         <img src="media/images/category-page.png">
 
 -   The post detail Page
-    -   An indivdual post can be viewed on its own page by clicking on the available link.
+    -   An individual post can be viewed on its own page by clicking on the available link.
     -   It takes the user to a new page with a full view of the post with its comment section.
     -   The user can only comment or like a post if they are logged in and has the links to the appropriate pages.
 
@@ -259,31 +262,32 @@ The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
 
 ## Features left to implement
 
--   Possible features to add in an update:
+-   Possible features to add in future updates:
     -   Password reset when users cannot remember their passwords.
     -   Ability for users to edit/delete comments.
     -   Show number of comments on the post in the home view.
-    -   Ability for user to delete account.
-    -   Sort posts by their popularity e.g. likes, comments on their own page.
+    -   Ability for user to delete their account.
+    -   Sort posts by their popularity, e.g. likes, comments.
     -   Have a nested comment section so users can directly reply to specific messages.
     -   Account registration with social accounts.
     -   Have a way for users to report offensive content.
     -   Implement a contact us section for users to email site owners/admins.
     -   A search ability to find content easily. 
+    -   Organize the images with folder in cloudinary.
 
 
 # Templates
 
 -   Two applications were used to create this project:
-    -   One is called memebers, it handles all the aspects that have have to do with the user e.g. registration, login etc
-    -   The second is called memeblog, this handles the main part of the blog. e.g. posting, commenting etc
+    -   One is called memebers, it handles all the aspects that have to do with the user e.g. registration, login etc.
+    -   The second is called memeblog, this handles the main part of the blog. e.g. posting, commenting etc.
 
 -   The template folder in this project has two folders:
-    -   One called registration which holds all the HTML templates for the memebers application.
+    -   One called registration, which holds all the HTML templates for the memeber's application.
     -   The other called blog hold all the HTML templates for the memeblog/blog application.
 -   All templates on the site extends from the base.html which is in the main folder from templates.
--   This base.html has the navigation and footer elements which can be founds on all site pages.
--   This is the section in the base.html where the content from the other pages are place into
+-   This base.html has the navigation and footer elements which can be found on all site pages.
+-   This is the section in the base.html where the content from the other pages are placed into.
     ``` 
     <main>
         {% block content %}
@@ -298,11 +302,11 @@ The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
 
 ## User Stories Testing
 
--   First Time vistitor/User Goals
+-   First Time visitor/User Goals
 
     -   As a first time User, I want to be able to easily navigate the site.
     
-        -   When the visitor first enters the site they are greated with a welcome message.
+        -   When the visitor first enters the site they are greeted with a welcome message.
         -   The homepage has a featured post which gives the user a sense of what the site is about.
         -   The user can browse any category through the navigation bar or from the posts themselves.
         -   The new user can view all the content and would only need to register or login to interact with the content.
@@ -323,18 +327,18 @@ The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
 
         -   The user can do so from the navigation bar.
         -   From the homepage side widget called information.
-        -   Or from any post, which requires them to login to interact with the content.
+        -   Or from any post, which requires them to log in to interact with the content.
 
     -   As a registered User, I want to be able to view new content posted by other users
 
         -   When a user creates a post it gets posted to the home page and all the posts are sorted by date/time posted.
-        -   New content would is easy to find this way.
+        -   New content would be easy to find this way.
 
     -   As a registered User, I want to be able to Create, edit and delete my posts.
 
         -   A user can find their posts by category or from the home page.
         -   The add post is at the top of the navigation bar so the user can easily make posts when logged in.
-        -   If they are the author, throught the conditioning they will be able to edit, delete the posts they made.
+        -   If they are the author, through the conditioning they will be able to edit, delete the posts they made.
 
     -   As a registered User, I want to be able to edit any information I entered Prior.
 
@@ -359,10 +363,10 @@ The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
 -   HTML
 
     -   Each page of the site had their source page looked up and ran the HTML through the [W3C Validation](https://validator.w3.org/).
-    -   The validator showed an issue on the edit user details page. This page uses django's UserChangeForm and even though I did not state in the EditUserDetailsForm to use the password field, it still appears.
+    -   The validator showed an issue on the edit user details page. This page uses Django's UserChangeForm and even though I did not state in the EditUserDetailsForm to use the password field, it still appears.
         <img src="media/images/edit-user-details-form-html-error.png">
         <img src="media/images/edit-user-details-form-html-error-code.png">
-    -   This is the only error found, (continue explaination?)
+    -   This is the only error found and have not found a solution.
 
 -   CSS
 
@@ -380,22 +384,20 @@ The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
 
         <img src="media/images/pep8-test-example.png">
 
-[Back to Top](#table-of-contents)
-
 ## Manual Testing
 
--   Google Chrome developer tools was used throughout the development process to test the layout of the different pages.
+-   Google Chrome developer tools were used throughout the development process to test the layout of the different pages.
 -   Bootstrap made this easier to test and fix by using their documentation page to buid the sites elements.
--   Github issues and projects was used to track down the features that I wanted the site to have. Each feature was given their own label to dertermine how important it was to develop the site as planned. The priority was to have the core functionality of the site up and running that was labled with Must Have. Should Have lables are features to furthur improve the user experience, Could Have lables represent that features that weren't a must but would be beneficial to have and lastly the Wont Have are the features the site will not have at launch, but could have in later updates.
--   All functionality of the site was tested at the different stages of delevelopment to test whether the user was redirected to right page after doing something. The URL naming convention has the same name, path as the view to keep it intuitive to the action.
--   Majority of the forms were extended from the various django forms to style them with bootstrap. Each has their own error message system which ensures only valid information is accepted and a success message gets displayed on successful input.
--   The site also has User authenciation to keep track of which user can post, edit and delete depending if they are they author of a post.
+-   Github issues and projects was used to track down the features that I wanted the site to have. Each feature was given their own label to determine how important it was to develop the site. The priority was to have the core functionality of the site up and running that was labeled with Must Have. Should Have labels are features to further improve the user experience, Could Have labels represent the features that weren't a must but would be beneficial to have and lastly the Wont Have are the features the site will not have at launch, but could have in later updates.
+-   All functionality of the site was tested in the different stages of development to test whether the user was redirected to correct page after doing something. The URL naming convention has the same name, path as the view to keep it intuitive to the action.
+-   The majority of the forms were extended from the various Django forms to style them with bootstrap. Each has their own error message system which ensures only valid information is accepted and a success message gets displayed on successful input.
+-   The site also has User authentication to keep track of which user can post, edit and delete depending if they are they author of a post.
 
 ## Automated Testing 
 
--   Unit tests was used from the python standard library module to test the models, forms and views for the applications. 
+-   Unit test was used from the python standard library module to test the models, forms and views for the applications. 
 -   Coverage was installed to find out how much of the code was tested. Using ```pip3 install coverage``` and ```coverage --source=app manage.py test``` to generate the html file.
--   Majority of the code uses django's class based views and forms which required no testing.
+-   the majority of the code uses Django's class based views and forms which required no testing.
 
 -   Coverage results for the members application
 
@@ -404,3 +406,59 @@ The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
 -   Coverage results for the memeblog application
 
     <img src="media/images/coverage-report-memeblog.png">
+
+[Back to Top](#table-of-contents)
+
+# Bugs
+
+-   Database Migration
+
+    The main issue I faced during development was working with the database. Initially the Postges database was used by default, I believe the error occurred during the creating of the second application called members. When it came to making any changes to the model in the memeblog app, (then called blog) the migrations were being made but the changes were not migrating to the database. I thought nothing of it and continued working. 
+    Further on in the development more changes needed to be made and the issue persisted and now migrations were not happening at all. Went to check stack overflow if any users came across something similar. The general solution was to clear past migration files and try a new migration. This solution seemed to work, but was temporary.
+    Later on, more changes needed to be made and the previous solution was not working anymore. I therefore believed it was a database issue and decided to delete my postgres database on heroku and attached a fresh database and start the migrations again.
+    This caused a new error, Django was looking for a specific table and without it the migrations would not proceed. This cause a confusion as this was a new database. 
+    I then contacted student care and they had not seen this error before. I moved the database to a local one using sqlite and every time I deleted the past migrations in order to start fresh, Django was still looking for that table, that didn't exist. I tried various methods with no success. The next day I recontacted student care and it began the troubleshooting again until we came accross this post [link](https://stackoverflow.com/questions/34548768/Django-no-such-table-exception/67283136#67283136). With nothing else working I tried it, deleting the application and installed a new one. 
+    Initially I moved all the files it to their respected folders, e.g. the models, forms, urls which caused the same error to appear. I then removed all those files except the models, and to my joy the migrations went through. It was a very stressful experience, but I feel I learned more about how Django works which benefits me in the long run. I did notice later on that the error came from the main folders urls and simply commenting out the url path to the app, then running the migrations fixed the issue.
+
+# Deployment
+
+This fullstack application was deployed to GitHub pages, using Gitpod as a development environment. The changes were commited using the git version control, using the push command in Gitpod to save changes with messages into GitHub. Any secret environment variables were stored in an `env.py` files which was added by default to the `.gitignore` file using Code Institutes Gitpod template. 
+
+## Deployment to Heroku
+
+-   Push the code to github and commit the changes
+-   Create an app using Heroku and link the project from your github account to your new Heroku app
+-   In the heroku app click on setting an then reveal config vars
+-   Add the secret environment variables there and in the env.py fill in gitpod. 
+-   In gitpod, add the DATBASE_URL to the settings.py file
+-   Make the postgres database from heroku the default database 
+`DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}`
+-   Then `python3 manage.py migrate` the to database
+-   Then go back to heroku in the deploy section, scroll down and click deploy branch.
+
+[Back to Top](#table-of-contents)
+
+# Credits
+
+-  All code was written by the author.
+-   [Overstackflow](https://stackoverflow.com/) to help troubleshoot problems.
+-   Codemy's Create blog [playlist](https://www.youtube.com/playlist?list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi)
+-   [Very Academy](https://www.youtube.com/playlist?list=PLOLrQ9Pn6cawWd-5UZM6CIm0uqFXeBcTd)
+
+## Media
+
+-   Used a Blog home bootstrap started template from [Start Bootstrap](https://startbootstrap.com/template/blog-home)
+-   Used snippets from bootdey.com for [comments](https://www.bootdey.com/snippets/view/blog-comments#preview) and [User information](https://www.bootdey.com/snippets/view/Table-user-information#preview)
+-   Used snippet form bboostrap for a [footer](https://bbbootstrap.com/snippets/bootstrap-fixed-footer-template-social-icons-59664838)
+-   Unsplash images by Fakurian Design [first](https://unsplash.com/photos/HmgeiuZE0Iw), [second](https://unsplash.com/photos/nNLQGgWZD7Q)
+-   [Wallpaperswide](http://wallpaperswide.com/destiny_2_beyond_light_2020_game_europa-wallpapers.html) for homepage image
+
+# Acknowledgements
+
+-   The students on Slack for peer review
+-   The tutor support provided by Code Institute
+-   Stackoverflow for troubleshooting problems
+
+[Back to Top](#table-of-contents)
