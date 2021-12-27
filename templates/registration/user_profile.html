@@ -9,7 +9,7 @@
                 <div class="container card py-5 px-5">
                     <h2>User Details</h2>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             {% if "default" in page_user.profile_pic.url %}
                             <img style="width:400px;" alt="default user profile image" class="img-thumbnail"
                                 src="https://res.cloudinary.com/demon13/image/upload/v1639504110/default_profile_pic_qzyzr6.png">
@@ -18,12 +18,12 @@
                                 src="{{ page_user.profile_pic.url }}">
                             {% endif %}
                             {% if user.id == userprofile.user.id %}
-                            <a href="{% url 'edit_profile_page' user.userprofile.id %}"> <i class="fas fa-edit"></i>
-                                Edit Profile |</a>
-                            <a href="{% url 'edit_user_details' %}"> <i class="fas fa-edit"></i> Edit Details</a>
+                            <br>
+                            <a href="{% url 'edit_profile_page' user.userprofile.id %}"> <i class="fas fa-edit"></i>Profile |</a>
+                            <a href="{% url 'edit_user_details' %}"> <i class="fas fa-edit"></i>Details</a>
                             {% endif %}
                         </div>
-                        <div class="col-md-4 mt-4">
+                        <div class="col-md-6 mt-5">
                             <div class="table-responsive">
                                 <table class="table table-user-information">
                                     <tbody>
