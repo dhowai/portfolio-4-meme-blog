@@ -6,7 +6,7 @@ This project was focused on creating a Full-Stack developed site using the Djang
 
 Memebase is a reddit style blog where content is curated by the users who can view, like and comment on the content. The site is maintained by the administrators to help maintain the integrity of the site. 
 
-The live link can be found here: https://portfolio-4-memebase.herokuapp.com/
+The live link can be found here: https://portfolio-4-memebase.onrender.com
 
 ***
 
